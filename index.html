@@ -2,14 +2,28 @@
 <html lang="en">
 
 <head>
+
+    <!-- Basic Settings -->
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <title>AZU Science</title>
+    <meta
+        name="description"
+        content="AZU Science - Faculty of Science Academic Portal"
+    >
 
+    <title>AZU Science | Faculty of Science</title>
+
+
+    <!-- Main CSS File -->
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
@@ -18,7 +32,29 @@
          HEADER
     ========================================== -->
 
-    <header class="site-header">
+    <header class="header" id="home">
+
+
+        <!-- =====================================
+             HEADER BACKGROUND IMAGE
+        ====================================== -->
+
+        <div class="header-background">
+
+            <img
+                src="images/header/IMG-20260906-WA0039.jpg"
+                alt="Faculty of Science Building"
+            >
+
+        </div>
+
+
+        <!-- =====================================
+             DARK OVERLAY
+        ====================================== -->
+
+        <div class="header-overlay"></div>
+
 
 
         <!-- =====================================
@@ -27,20 +63,28 @@
 
         <nav class="navbar">
 
-            <div class="nav-container">
+            <div class="container nav-container">
 
 
                 <!-- =============================
-                     TEAM LOGO + WEBSITE NAME
+                     TEAM BRAND
                 ============================== -->
 
-                <a href="#home" class="brand">
+                <a
+                    href="#home"
+                    class="brand"
+                >
+
+                    <!-- Team Logo -->
 
                     <img
                         src="images/header/FB_IMG_1788700938304.jpg"
-                        alt="AZU Science Logo"
+                        alt="AZU Science Team Logo"
                         class="brand-logo"
                     >
+
+
+                    <!-- Brand Text -->
 
                     <div class="brand-text">
 
@@ -48,9 +92,14 @@
                             AZU Science
                         </span>
 
+                        <span class="brand-subtitle">
+                            Faculty of Science
+                        </span>
+
                     </div>
 
                 </a>
+
 
 
                 <!-- =============================
@@ -59,27 +108,31 @@
 
                 <div class="nav-links">
 
-                    <a href="#home" class="nav-link active">
+                    <a
+                        href="#home"
+                        class="nav-link active"
+                    >
                         Home
                     </a>
 
-                    <a href="#academic" class="nav-link">
-                        Academic
+
+                    <a
+                        href="#departments"
+                        class="nav-link"
+                    >
+                        Departments
                     </a>
 
-                    <a href="#research" class="nav-link">
-                        Research
-                    </a>
 
-                    <a href="#news" class="nav-link">
-                        News
-                    </a>
-
-                    <a href="#about" class="nav-link">
+                    <a
+                        href="#about"
+                        class="nav-link"
+                    >
                         About
                     </a>
 
                 </div>
+
 
 
                 <!-- =============================
@@ -89,24 +142,11 @@
                 <div class="header-actions">
 
 
-                    <!-- Search Button -->
-
-                    <button
-                        type="button"
-                        class="search-button"
-                        aria-label="Search"
-                    >
-
-                        <span class="search-icon"></span>
-
-                    </button>
-
-
-                    <!-- Sign In Button -->
+                    <!-- Login Button -->
 
                     <a
                         href="#login"
-                        class="sign-in-button"
+                        class="login-button"
                     >
 
                         Sign In
@@ -114,12 +154,14 @@
                     </a>
 
 
+
                     <!-- Mobile Menu Button -->
 
                     <button
                         type="button"
                         class="menu-button"
-                        aria-label="Open menu"
+                        id="menuButton"
+                        aria-label="Open navigation menu"
                         aria-expanded="false"
                     >
 
@@ -132,6 +174,7 @@
 
                 </div>
 
+
             </div>
 
         </nav>
@@ -139,97 +182,157 @@
 
 
         <!-- =====================================
-             HERO BACKGROUND
+             HERO SECTION
         ====================================== -->
 
-        <div
-            class="header-background"
-            style="
-                background-image:
-                url('images/header/IMG-20260906-WA0048.jpg');
-            "
-        >
+        <section class="hero">
 
-        </div>
+            <div class="container hero-container">
 
 
+                <!-- =============================
+                     HERO CONTENT
+                ============================== -->
 
-        <!-- =====================================
-             HERO OVERLAY
-        ====================================== -->
-
-        <div class="header-overlay"></div>
-
+                <div class="hero-content">
 
 
-        <!-- =====================================
-             HERO CONTENT
-        ====================================== -->
+                    <!-- Small Label -->
 
-        <div class="header-content" id="home">
+                    <div class="hero-badge">
 
+                        <span class="badge-dot"></span>
 
-            <!-- Main Heading -->
+                        Faculty of Science Digital Portal
 
-            <div class="header-text">
-
-                <p class="header-label">
-                    FACULTY OF SCIENCE
-                </p>
+                    </div>
 
 
-                <h1 class="header-title">
 
-                    Explore.
-                    <br>
+                    <!-- Main Title -->
 
-                    Learn.
-                    <br>
+                    <h1 class="hero-title">
 
-                    <span>Discover.</span>
+                        Your Gateway to
 
-                </h1>
+                        <span>
+                            Scientific Knowledge
+                        </span>
+
+                    </h1>
 
 
-                <p class="header-description">
 
-                    Your gateway to academic resources,
-                    research, knowledge, and everything
-                    related to the Faculty of Science.
+                    <!-- Description -->
 
-                </p>
+                    <p class="hero-description">
+
+                        Access your academic resources,
+                        lectures, subjects, and educational
+                        materials through one organized
+                        digital platform.
+
+                    </p>
+
+
+
+                    <!-- Hero Buttons -->
+
+                    <div class="hero-buttons">
+
+
+                        <!-- Main Button -->
+
+                        <a
+                            href="#login"
+                            class="hero-primary-button"
+                        >
+
+                            Get Started
+
+                            <span class="button-arrow">
+                                →
+                            </span>
+
+                        </a>
+
+
+
+                        <!-- Secondary Button -->
+
+                        <a
+                            href="#departments"
+                            class="hero-secondary-button"
+                        >
+
+                            Explore Departments
+
+                        </a>
+
+
+                    </div>
+
+
+
+                    <!-- Hero Statistics -->
+
+                    <div class="hero-stats">
+
+
+                        <div class="stat-item">
+
+                            <span class="stat-number">
+                                24/7
+                            </span>
+
+                            <span class="stat-label">
+                                Access
+                            </span>
+
+                        </div>
+
+
+                        <div class="stat-divider"></div>
+
+
+                        <div class="stat-item">
+
+                            <span class="stat-number">
+                                Easy
+                            </span>
+
+                            <span class="stat-label">
+                                Navigation
+                            </span>
+
+                        </div>
+
+
+                        <div class="stat-divider"></div>
+
+
+                        <div class="stat-item">
+
+                            <span class="stat-number">
+                                Fast
+                            </span>
+
+                            <span class="stat-label">
+                                Access
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
 
             </div>
 
-
-
-            <!-- Hero Buttons -->
-
-            <div class="header-buttons">
-
-                <a
-                    href="#academic"
-                    class="primary-button"
-                >
-
-                    Explore Academic
-
-                </a>
-
-
-                <a
-                    href="#about"
-                    class="secondary-button"
-                >
-
-                    Discover More
-
-                </a>
-
-            </div>
-
-
-        </div>
+        </section>
 
 
 
@@ -238,16 +341,15 @@
         ====================================== -->
 
         <a
-            href="#academic"
+            href="#departments"
             class="scroll-indicator"
-            aria-label="Scroll to next section"
         >
-
-            <span class="scroll-line"></span>
 
             <span class="scroll-text">
                 Scroll to explore
             </span>
+
+            <span class="scroll-line"></span>
 
         </a>
 
@@ -256,9 +358,56 @@
 
 
 
-    <!-- JAVASCRIPT -->
+    <!-- =========================================
+         MAIN CONTENT
+         We will build these sections later
+    ========================================== -->
+
+    <main>
+
+
+        <!-- Departments Section -->
+
+        <section
+            class="departments-section"
+            id="departments"
+        >
+
+        </section>
+
+
+
+        <!-- Login Section -->
+
+        <section
+            class="login-section"
+            id="login"
+        >
+
+        </section>
+
+
+
+        <!-- About Section -->
+
+        <section
+            class="about-section"
+            id="about"
+        >
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
 
     <script src="script.js"></script>
+
 
 </body>
 
