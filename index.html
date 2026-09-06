@@ -1,426 +1,265 @@
-<!-- =========================================================
-     SCIENCE PORTAL
-     MAIN WEBSITE HEADER
-========================================================= -->
+<!DOCTYPE html>
+<html lang="en">
 
-<header class="site-header" id="home">
+<head>
+    <meta charset="UTF-8">
 
-    <!-- Skip Link -->
-    <a href="#main-content" class="skip-link">
-        Skip to main content
-    </a>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>AZU Science</title>
 
-    <!-- =====================================================
-         TOP HEADER BAR
-         Portal identity and utility actions
-    ====================================================== -->
+    <link rel="stylesheet" href="style.css">
+</head>
 
-    <div class="header-top">
-
-        <div class="header-wrapper">
-
-            <!-- Portal Status -->
-            <div class="portal-status">
-
-                <span class="status-indicator"></span>
-
-                <span class="status-text">
-                    Faculty of Science Digital Portal
-                </span>
-
-            </div>
+<body>
 
 
-            <!-- Utility Navigation -->
-            <div class="utility-links">
+    <!-- =========================================
+         HEADER
+    ========================================== -->
 
-                <a href="#about">
-                    About Portal
-                </a>
-
-                <a href="#contact">
-                    Support
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
+    <header class="site-header">
 
 
-    <!-- =====================================================
-         MAIN HEADER
-         Logo, website identity and actions
-    ====================================================== -->
+        <!-- =====================================
+             NAVIGATION BAR
+        ====================================== -->
 
-    <div class="main-header">
+        <nav class="navbar">
 
-        <div class="header-wrapper">
+            <div class="nav-container">
 
 
-            <!-- =========================
-                 WEBSITE BRAND
-            ========================== -->
+                <!-- =============================
+                     TEAM LOGO + WEBSITE NAME
+                ============================== -->
 
-            <a href="#home" class="brand">
-
-                <div class="brand-logo">
+                <a href="#home" class="brand">
 
                     <img
-                        src="images/header/logo.png"
-                        alt="Science Portal"
+                        src="images/header/FB_IMG_1788700938304.jpg"
+                        alt="AZU Science Logo"
+                        class="brand-logo"
                     >
 
-                </div>
+                    <div class="brand-text">
 
+                        <span class="brand-name">
+                            AZU Science
+                        </span>
 
-                <div class="brand-content">
-
-                    <span class="brand-title">
-                        Science Portal
-                    </span>
-
-                    <span class="brand-subtitle">
-                        Faculty of Science
-                    </span>
-
-                </div>
-
-            </a>
-
-
-            <!-- =========================
-                 HEADER ACTIONS
-            ========================== -->
-
-            <div class="header-actions">
-
-
-                <!-- Search Button -->
-
-                <button
-                    class="search-button"
-                    type="button"
-                    aria-label="Open search"
-                >
-
-                    <span class="search-icon">
-                        🔍
-                    </span>
-
-                    <span class="search-text">
-                        Search
-                    </span>
-
-                </button>
-
-
-                <!-- Login Button -->
-
-                <a
-                    href="#login"
-                    class="login-button"
-                >
-
-                    <span class="login-icon">
-                        →
-                    </span>
-
-                    <span class="login-text">
-                        Login
-                    </span>
+                    </div>
 
                 </a>
 
 
-                <!-- Mobile Menu Button -->
+                <!-- =============================
+                     DESKTOP NAVIGATION
+                ============================== -->
 
-                <button
-                    class="menu-toggle"
-                    type="button"
-                    aria-label="Open navigation menu"
-                    aria-expanded="false"
-                    aria-controls="main-navigation"
-                >
+                <div class="nav-links">
 
-                    <span class="menu-line"></span>
+                    <a href="#home" class="nav-link active">
+                        Home
+                    </a>
 
-                    <span class="menu-line"></span>
+                    <a href="#academic" class="nav-link">
+                        Academic
+                    </a>
 
-                    <span class="menu-line"></span>
+                    <a href="#research" class="nav-link">
+                        Research
+                    </a>
 
-                </button>
+                    <a href="#news" class="nav-link">
+                        News
+                    </a>
+
+                    <a href="#about" class="nav-link">
+                        About
+                    </a>
+
+                </div>
+
+
+                <!-- =============================
+                     HEADER ACTIONS
+                ============================== -->
+
+                <div class="header-actions">
+
+
+                    <!-- Search Button -->
+
+                    <button
+                        type="button"
+                        class="search-button"
+                        aria-label="Search"
+                    >
+
+                        <span class="search-icon"></span>
+
+                    </button>
+
+
+                    <!-- Sign In Button -->
+
+                    <a
+                        href="#login"
+                        class="sign-in-button"
+                    >
+
+                        Sign In
+
+                    </a>
+
+
+                    <!-- Mobile Menu Button -->
+
+                    <button
+                        type="button"
+                        class="menu-button"
+                        aria-label="Open menu"
+                        aria-expanded="false"
+                    >
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </button>
+
+
+                </div>
 
             </div>
 
-        </div>
+        </nav>
 
-    </div>
 
 
-    <!-- =====================================================
-         MAIN NAVIGATION
-    ====================================================== -->
+        <!-- =====================================
+             HERO BACKGROUND
+        ====================================== -->
 
-    <nav
-        class="main-navigation"
-        id="main-navigation"
-        aria-label="Primary navigation"
-    >
-
-        <div class="header-wrapper">
-
-
-            <ul class="navigation-list">
-
-
-                <!-- Home -->
-
-                <li class="navigation-item">
-
-                    <a
-                        href="#home"
-                        class="navigation-link active"
-                    >
-
-                        Home
-
-                    </a>
-
-                </li>
-
-
-                <!-- Departments -->
-
-                <li class="navigation-item">
-
-                    <a
-                        href="#departments"
-                        class="navigation-link"
-                    >
-
-                        Departments
-
-                    </a>
-
-                </li>
-
-
-                <!-- Academic Levels -->
-
-                <li class="navigation-item">
-
-                    <a
-                        href="#levels"
-                        class="navigation-link"
-                    >
-
-                        Academic Levels
-
-                    </a>
-
-                </li>
-
-
-                <!-- Programs -->
-
-                <li class="navigation-item">
-
-                    <a
-                        href="#programs"
-                        class="navigation-link"
-                    >
-
-                        Programs
-
-                    </a>
-
-                </li>
-
-
-                <!-- Courses -->
-
-                <li class="navigation-item">
-
-                    <a
-                        href="#courses"
-                        class="navigation-link"
-                    >
-
-                        Courses
-
-                    </a>
-
-                </li>
-
-
-                <!-- Lectures -->
-
-                <li class="navigation-item">
-
-                    <a
-                        href="#lectures"
-                        class="navigation-link"
-                    >
-
-                        Lectures
-
-                    </a>
-
-                </li>
-
-
-                <!-- About -->
-
-                <li class="navigation-item">
-
-                    <a
-                        href="#about"
-                        class="navigation-link"
-                    >
-
-                        About
-
-                    </a>
-
-                </li>
-
-
-                <!-- Contact -->
-
-                <li class="navigation-item">
-
-                    <a
-                        href="#contact"
-                        class="navigation-link"
-                    >
-
-                        Contact
-
-                    </a>
-
-                </li>
-
-
-            </ul>
+        <div
+            class="header-background"
+            style="
+                background-image:
+                url('images/header/IMG-20260906-WA0048.jpg');
+            "
+        >
 
         </div>
 
-    </nav>
 
 
-    <!-- =====================================================
-         MOBILE NAVIGATION
-         Controlled by JavaScript
-    ====================================================== -->
+        <!-- =====================================
+             HERO OVERLAY
+        ====================================== -->
 
-    <div class="mobile-navigation" id="mobile-navigation">
-
-
-        <div class="mobile-navigation-header">
+        <div class="header-overlay"></div>
 
 
-            <span class="mobile-menu-title">
-                Navigation
+
+        <!-- =====================================
+             HERO CONTENT
+        ====================================== -->
+
+        <div class="header-content" id="home">
+
+
+            <!-- Main Heading -->
+
+            <div class="header-text">
+
+                <p class="header-label">
+                    FACULTY OF SCIENCE
+                </p>
+
+
+                <h1 class="header-title">
+
+                    Explore.
+                    <br>
+
+                    Learn.
+                    <br>
+
+                    <span>Discover.</span>
+
+                </h1>
+
+
+                <p class="header-description">
+
+                    Your gateway to academic resources,
+                    research, knowledge, and everything
+                    related to the Faculty of Science.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- Hero Buttons -->
+
+            <div class="header-buttons">
+
+                <a
+                    href="#academic"
+                    class="primary-button"
+                >
+
+                    Explore Academic
+
+                </a>
+
+
+                <a
+                    href="#about"
+                    class="secondary-button"
+                >
+
+                    Discover More
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =====================================
+             SCROLL INDICATOR
+        ====================================== -->
+
+        <a
+            href="#academic"
+            class="scroll-indicator"
+            aria-label="Scroll to next section"
+        >
+
+            <span class="scroll-line"></span>
+
+            <span class="scroll-text">
+                Scroll to explore
             </span>
 
-
-            <button
-                class="mobile-menu-close"
-                type="button"
-                aria-label="Close navigation menu"
-            >
-
-                ×
-
-            </button>
-
-        </div>
+        </a>
 
 
-        <ul class="mobile-navigation-list">
+    </header>
 
 
-            <li>
-                <a href="#home">
-                    Home
-                </a>
-            </li>
 
+    <!-- JAVASCRIPT -->
 
-            <li>
-                <a href="#departments">
-                    Departments
-                </a>
-            </li>
+    <script src="script.js"></script>
 
+</body>
 
-            <li>
-                <a href="#levels">
-                    Academic Levels
-                </a>
-            </li>
-
-
-            <li>
-                <a href="#programs">
-                    Programs
-                </a>
-            </li>
-
-
-            <li>
-                <a href="#courses">
-                    Courses
-                </a>
-            </li>
-
-
-            <li>
-                <a href="#lectures">
-                    Lectures
-                </a>
-            </li>
-
-
-            <li>
-                <a href="#about">
-                    About
-                </a>
-            </li>
-
-
-            <li>
-                <a href="#contact">
-                    Contact
-                </a>
-            </li>
-
-
-        </ul>
-
-
-        <div class="mobile-navigation-actions">
-
-            <a
-                href="#login"
-                class="mobile-login-button"
-            >
-
-                Login to Your Account
-
-            </a>
-
-        </div>
-
-    </div>
-
-
-    <!-- Mobile Menu Overlay -->
-
-    <div class="mobile-menu-overlay"></div>
-
-
-</header>
+</html>
