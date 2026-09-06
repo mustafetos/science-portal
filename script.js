@@ -1,112 +1,291 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* ========================================
-       HEADER ELEMENTS
-    ======================================== */
+    /* =========================================
+       GET WEBSITE ELEMENTS
+    ========================================= */
 
     const header = document.querySelector(".header");
 
-    const menuToggle = document.querySelector(".menu-toggle");
+    const navbar = document.querySelector(".navbar");
 
-    const mobileMenu = document.querySelector(".mobile-menu");
+    const menuButton = document.querySelector("#menuButton");
 
-    const navLinks = document.querySelectorAll(".nav-link");
+    const navLinks = document.querySelector(".nav-links");
 
-    const headerButtons = document.querySelector(".header-buttons");
+    const allNavLinks = document.querySelectorAll(".nav-link");
+
+    const body = document.body;
 
 
-    /* ========================================
+
+    /* =========================================
        MOBILE MENU
-    ======================================== */
+    ========================================= */
 
-    if (menuToggle && mobileMenu) {
+    if (menuButton && navLinks) {
 
-        menuToggle.addEventListener("click", () => {
+        menuButton.addEventListener("click", () => {
 
-            menuToggle.classList.toggle("active");
+            menuButton.classList.toggle("active");
 
-            mobileMenu.classList.toggle("active");
+            navLinks.classList.toggle("mobile-active");
 
-            document.body.classList.toggle("menu-open");
+            body.classList.toggle("menu-open");
+
+
+            /* Update Accessibility */
+
+            const isOpen =
+                menuButton.classList.contains("active");
+
+            menuButton.setAttribute(
+                "aria-expanded",
+                isOpen
+            );
 
         });
 
     }
 
 
-    /* ========================================
-       CLOSE MOBILE MENU WHEN CLICKING A LINK
-    ======================================== */
 
-    navLinks.forEach((link) => {
+    /* =========================================
+       CLOSE MOBILE MENU
+       WHEN CLICKING A NAVIGATION LINK
+    ========================================= */
+
+    allNavLinks.forEach((link) => {
 
         link.addEventListener("click", () => {
 
-            if (mobileMenu) {
+            if (menuButton) {
 
-                mobileMenu.classList.remove("active");
+                menuButton.classList.remove("active");
+
+                menuButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
 
             }
 
-            if (menuToggle) {
 
-                menuToggle.classList.remove("active");
+            if (navLinks) {
+
+                navLinks.classList.remove(
+                    "mobile-active"
+                );
 
             }
 
-            document.body.classList.remove("menu-open");
+
+            body.classList.remove(
+                "menu-open"
+            );
 
         });
 
     });
 
 
-    /* ========================================
-       HEADER SCROLL EFFECT
-    ======================================== */
 
-    window.addEventListener("scroll", () => {
+    /* =========================================
+       CLOSE MENU WHEN CLICKING OUTSIDE
+    ========================================= */
 
-        if (!header) return;
+    document.addEventListener("click", (event) => {
 
-        if (window.scrollY > 50) {
+        if (!menuButton || !navLinks) {
 
-            header.classList.add("scrolled");
+            return;
 
-        } else {
+        }
 
-            header.classList.remove("scrolled");
+
+        const clickedInsideMenu =
+            navLinks.contains(event.target);
+
+        const clickedMenuButton =
+            menuButton.contains(event.target);
+
+
+        if (
+
+            !clickedInsideMenu &&
+            !clickedMenuButton &&
+            navLinks.classList.contains(
+                "mobile-active"
+            )
+
+        ) {
+
+            navLinks.classList.remove(
+                "mobile-active"
+            );
+
+            menuButton.classList.remove(
+                "active"
+            );
+
+            menuButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            body.classList.remove(
+                "menu-open"
+            );
 
         }
 
     });
 
 
-    /* ========================================
-       SMOOTH SCROLL FOR INTERNAL LINKS
-    ======================================== */
 
-    const scrollLinks = document.querySelectorAll('a[href^="#"]');
+    /* =========================================
+       CLOSE MOBILE MENU
+       WHEN SCREEN BECOMES DESKTOP
+    ========================================= */
 
-    scrollLinks.forEach((link) => {
+    window.addEventListener("resize", () => {
 
-        link.addEventListener("click", (event) => {
+        if (window.innerWidth > 900) {
 
-            const targetId = link.getAttribute("href");
+            if (menuButton) {
 
-            if (!targetId || targetId === "#") return;
+                menuButton.classList.remove(
+                    "active"
+                );
 
-            const targetSection = document.querySelector(targetId);
+                menuButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
 
-            if (targetSection) {
+            }
+
+
+            if (navLinks) {
+
+                navLinks.classList.remove(
+                    "mobile-active"
+                );
+
+            }
+
+
+            body.classList.remove(
+                "menu-open"
+            );
+
+        }
+
+    });
+
+
+
+    /* =========================================
+       NAVBAR SCROLL EFFECT
+    ========================================= */
+
+    function updateNavbar() {
+
+        if (!navbar) {
+
+            return;
+
+        }
+
+
+        if (window.scrollY > 50) {
+
+            navbar.classList.add(
+                "navbar-scrolled"
+            );
+
+        } else {
+
+            navbar.classList.remove(
+                "navbar-scrolled"
+            );
+
+        }
+
+    }
+
+
+    window.addEventListener(
+        "scroll",
+        updateNavbar
+    );
+
+
+    updateNavbar();
+
+
+
+    /* =========================================
+       SMOOTH SCROLL
+    ========================================= */
+
+    const internalLinks =
+        document.querySelectorAll(
+            'a[href^="#"]'
+        );
+
+
+    internalLinks.forEach((link) => {
+
+        link.addEventListener(
+            "click",
+            (event) => {
+
+                const targetId =
+                    link.getAttribute("href");
+
+
+                if (
+
+                    !targetId ||
+                    targetId === "#"
+
+                ) {
+
+                    return;
+
+                }
+
+
+                const target =
+                    document.querySelector(
+                        targetId
+                    );
+
+
+                if (!target) {
+
+                    return;
+
+                }
+
 
                 event.preventDefault();
 
-                const headerHeight =
-                    header ? header.offsetHeight : 0;
+
+                const navbarHeight =
+                    navbar
+                        ? navbar.offsetHeight
+                        : 0;
+
 
                 const targetPosition =
-                    targetSection.offsetTop - headerHeight;
+
+                    target.getBoundingClientRect().top +
+
+                    window.scrollY -
+
+                    navbarHeight;
+
 
                 window.scrollTo({
 
@@ -118,57 +297,84 @@ document.addEventListener("DOMContentLoaded", () => {
 
             }
 
-        });
+        );
 
     });
 
 
-    /* ========================================
+
+    /* =========================================
        ACTIVE NAVIGATION LINK
-    ======================================== */
+    ========================================= */
 
-    const sections = document.querySelectorAll("section[id]");
+    const sections =
+        document.querySelectorAll(
+            "section[id], header[id]"
+        );
 
-    function updateActiveLink() {
+
+    function updateActiveNavigation() {
 
         const scrollPosition =
-            window.scrollY + 150;
+
+            window.scrollY +
+
+            150;
+
+
+        let currentSection = "home";
+
 
         sections.forEach((section) => {
 
             const sectionTop =
                 section.offsetTop;
 
+
             const sectionHeight =
                 section.offsetHeight;
+
 
             const sectionId =
                 section.getAttribute("id");
 
+
             if (
 
                 scrollPosition >= sectionTop &&
+
                 scrollPosition <
+
                 sectionTop + sectionHeight
 
             ) {
 
-                navLinks.forEach((link) => {
+                currentSection =
+                    sectionId;
 
-                    link.classList.remove("active");
+            }
 
-                    if (
+        });
 
-                        link.getAttribute("href") ===
-                        `#${sectionId}`
 
-                    ) {
+        allNavLinks.forEach((link) => {
 
-                        link.classList.add("active");
+            link.classList.remove(
+                "active"
+            );
 
-                    }
 
-                });
+            if (
+
+                link.getAttribute("href") ===
+
+                `#${currentSection}`
+
+            ) {
+
+                link.classList.add(
+                    "active"
+                );
 
             }
 
@@ -179,51 +385,70 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.addEventListener(
         "scroll",
-        updateActiveLink
+        updateActiveNavigation
     );
 
 
-    /* ========================================
-       CLOSE MENU WHEN CLICKING OUTSIDE
-    ======================================== */
+    updateActiveNavigation();
 
-    document.addEventListener("click", (event) => {
 
-        if (
 
-            !menuToggle ||
-            !mobileMenu
+    /* =========================================
+       ESCAPE KEY
+       CLOSE MOBILE MENU
+    ========================================= */
 
-        ) return;
+    document.addEventListener(
+        "keydown",
+        (event) => {
 
-        const clickedInsideMenu =
-            mobileMenu.contains(event.target);
+            if (event.key === "Escape") {
 
-        const clickedMenuButton =
-            menuToggle.contains(event.target);
+                if (menuButton) {
 
-        if (
+                    menuButton.classList.remove(
+                        "active"
+                    );
 
-            !clickedInsideMenu &&
-            !clickedMenuButton
+                    menuButton.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
 
-        ) {
+                }
 
-            mobileMenu.classList.remove("active");
 
-            menuToggle.classList.remove("active");
+                if (navLinks) {
 
-            document.body.classList.remove("menu-open");
+                    navLinks.classList.remove(
+                        "mobile-active"
+                    );
+
+                }
+
+
+                body.classList.remove(
+                    "menu-open"
+                );
+
+            }
 
         }
 
-    });
+    );
 
 
-    /* ========================================
-       INITIAL PAGE STATE
-    ======================================== */
 
-    updateActiveLink();
+    /* =========================================
+       HEADER READY STATE
+    ========================================= */
+
+    if (header) {
+
+        header.classList.add(
+            "header-ready"
+        );
+
+    }
 
 });
