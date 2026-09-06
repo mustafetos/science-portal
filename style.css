@@ -1,10 +1,26 @@
 /* =========================================
-   GLOBAL RESET
+   01 - GLOBAL RESET & VARIABLES
 ========================================= */
+
+:root {
+    --primary-color: #1d7be8;
+    --primary-light: #4da3ff;
+
+    --dark-color: #07111f;
+    --dark-overlay: rgba(4, 12, 24, 0.72);
+
+    --white: #ffffff;
+    --text-light: rgba(255, 255, 255, 0.80);
+
+    --navbar-height: 82px;
+    --container-width: 1200px;
+}
+
 
 * {
     margin: 0;
     padding: 0;
+
     box-sizing: border-box;
 }
 
@@ -16,102 +32,250 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #08111f;
-    color: #ffffff;
+
+    background: var(--dark-color);
+
+    color: var(--white);
+
+    overflow-x: hidden;
+}
+
+
+a {
+    color: inherit;
+
+    text-decoration: none;
+}
+
+
+button {
+    font: inherit;
 }
 
 
 /* =========================================
-   MAIN HEADER
+   02 - MAIN CONTAINER
 ========================================= */
 
-.site-header {
-    position: relative;
-    min-height: 100vh;
-    overflow: hidden;
-    background: #08111f;
+.container {
+    width: min(
+        var(--container-width),
+        90%
+    );
+
+    margin: 0 auto;
 }
 
 
 /* =========================================
-   NAVBAR
+   03 - HEADER
+========================================= */
+
+.header {
+    position: relative;
+
+    min-height: 100vh;
+
+    overflow: hidden;
+
+    background: var(--dark-color);
+}
+
+
+/* =========================================
+   04 - HEADER BACKGROUND IMAGE
+========================================= */
+
+.header-background {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 0;
+
+    overflow: hidden;
+}
+
+
+.header-background img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    transform: scale(1.03);
+
+    animation: backgroundZoom 18s ease-in-out infinite alternate;
+}
+
+
+@keyframes backgroundZoom {
+
+    from {
+        transform: scale(1.03);
+    }
+
+    to {
+        transform: scale(1.10);
+    }
+
+}
+
+
+/* =========================================
+   05 - HEADER OVERLAY
+========================================= */
+
+.header-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(4, 12, 24, 0.94) 0%,
+            rgba(4, 12, 24, 0.78) 48%,
+            rgba(4, 12, 24, 0.30) 100%
+        );
+}
+
+
+/* =========================================
+   06 - NAVBAR
 ========================================= */
 
 .navbar {
-    position: absolute;
+    position: fixed;
+
     top: 0;
     left: 0;
+
     width: 100%;
-    z-index: 100;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+
+    height: var(--navbar-height);
+
+    z-index: 1000;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.10);
+
+    transition:
+        background 0.3s ease,
+        backdrop-filter 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.navbar.navbar-scrolled {
+    background:
+        rgba(4, 12, 24, 0.92);
+
+    backdrop-filter:
+        blur(14px);
+
+    border-color:
+        rgba(255, 255, 255, 0.12);
 }
 
 
 .nav-container {
-    width: min(1200px, 90%);
-    min-height: 85px;
-
-    margin: auto;
+    height: 100%;
 
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
 
-    gap: 30px;
+    gap: 25px;
 }
 
 
 /* =========================================
-   BRAND
+   07 - BRAND
 ========================================= */
 
 .brand {
     display: flex;
+
     align-items: center;
 
     gap: 12px;
-
-    text-decoration: none;
-    color: #ffffff;
 
     flex-shrink: 0;
 }
 
 
 .brand-logo {
-    width: 48px;
-    height: 48px;
+    width: 50px;
+    height: 50px;
 
     object-fit: cover;
 
     border-radius: 50%;
 
-    border: 2px solid rgba(255, 255, 255, 0.8);
+    border:
+        2px solid
+        rgba(255, 255, 255, 0.75);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.brand:hover .brand-logo {
+    transform: rotate(8deg) scale(1.05);
+
+    border-color:
+        var(--primary-light);
 }
 
 
 .brand-text {
     display: flex;
-    align-items: center;
+
+    flex-direction: column;
+
+    gap: 2px;
 }
 
 
 .brand-name {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+
     font-weight: 700;
+
+    letter-spacing: 0.3px;
+}
+
+
+.brand-subtitle {
+    font-size: 0.72rem;
+
+    color:
+        rgba(255, 255, 255, 0.60);
+
     letter-spacing: 0.5px;
 }
 
 
 /* =========================================
-   NAVIGATION LINKS
+   08 - NAVIGATION LINKS
 ========================================= */
 
 .nav-links {
     display: flex;
+
     align-items: center;
 
-    gap: 28px;
+    gap: 30px;
 
     margin-left: auto;
 }
@@ -120,10 +284,11 @@ body {
 .nav-link {
     position: relative;
 
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.8);
+    color:
+        rgba(255, 255, 255, 0.75);
 
-    font-size: 0.95rem;
+    font-size: 0.92rem;
+
     font-weight: 500;
 
     padding: 10px 0;
@@ -139,20 +304,22 @@ body {
     position: absolute;
 
     left: 0;
-    bottom: 0;
+    bottom: 2px;
 
     width: 0;
     height: 2px;
 
-    background: #4da3ff;
+    background:
+        var(--primary-light);
 
     transition:
         width 0.3s ease;
 }
 
 
-.nav-link:hover {
-    color: #ffffff;
+.nav-link:hover,
+.nav-link.active {
+    color: var(--white);
 }
 
 
@@ -162,94 +329,26 @@ body {
 }
 
 
-.nav-link.active {
-    color: #ffffff;
-}
-
-
 /* =========================================
-   HEADER ACTIONS
+   09 - HEADER ACTIONS
 ========================================= */
 
 .header-actions {
     display: flex;
+
     align-items: center;
 
-    gap: 15px;
+    gap: 12px;
 }
 
 
 /* =========================================
-   SEARCH BUTTON
+   10 - LOGIN BUTTON
 ========================================= */
 
-.search-button {
-    width: 42px;
-    height: 42px;
-
-    border-radius: 50%;
-
-    border: 1px solid rgba(255, 255, 255, 0.3);
-
-    background: transparent;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    cursor: pointer;
-
-    transition:
-        background 0.3s ease,
-        border-color 0.3s ease;
-}
-
-
-.search-button:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: #ffffff;
-}
-
-
-/* Search Icon */
-
-.search-icon {
-    position: relative;
-
-    width: 16px;
-    height: 16px;
-
-    border: 2px solid #ffffff;
-
-    border-radius: 50%;
-}
-
-
-.search-icon::after {
-    content: "";
-
-    position: absolute;
-
-    width: 7px;
-    height: 2px;
-
-    background: #ffffff;
-
-    right: -6px;
-    bottom: -3px;
-
-    transform: rotate(45deg);
-
-    border-radius: 2px;
-}
-
-
-/* =========================================
-   SIGN IN BUTTON
-========================================= */
-
-.sign-in-button {
+.login-button {
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
 
@@ -259,13 +358,13 @@ body {
 
     border-radius: 8px;
 
-    background: #1d7be8;
+    background:
+        var(--primary-color);
 
-    color: #ffffff;
-
-    text-decoration: none;
+    color: var(--white);
 
     font-size: 0.9rem;
+
     font-weight: 600;
 
     transition:
@@ -275,25 +374,28 @@ body {
 }
 
 
-.sign-in-button:hover {
-    background: #3490ff;
+.login-button:hover {
+    background:
+        var(--primary-light);
 
-    transform: translateY(-2px);
+    transform:
+        translateY(-2px);
 
     box-shadow:
-        0 10px 25px rgba(29, 123, 232, 0.35);
+        0 10px 25px
+        rgba(29, 123, 232, 0.35);
 }
 
 
 /* =========================================
-   MOBILE MENU BUTTON
+   11 - MOBILE MENU BUTTON
 ========================================= */
 
 .menu-button {
     display: none;
 
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
 
     border: none;
 
@@ -302,6 +404,7 @@ body {
     cursor: pointer;
 
     flex-direction: column;
+
     align-items: center;
     justify-content: center;
 
@@ -315,252 +418,474 @@ body {
     width: 24px;
     height: 2px;
 
-    background: #ffffff;
+    border-radius: 4px;
 
-    border-radius: 5px;
+    background: var(--white);
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+
+.menu-button.active span:nth-child(1) {
+    transform:
+        translateY(7px)
+        rotate(45deg);
+}
+
+
+.menu-button.active span:nth-child(2) {
+    opacity: 0;
+}
+
+
+.menu-button.active span:nth-child(3) {
+    transform:
+        translateY(-7px)
+        rotate(-45deg);
 }
 
 
 /* =========================================
-   HEADER BACKGROUND
+   12 - HERO
 ========================================= */
 
-.header-background {
-    position: absolute;
-
-    inset: 0;
-
-    background-size: cover;
-    background-position: center;
-
-    transform: scale(1.02);
-}
-
-
-/* =========================================
-   DARK OVERLAY
-========================================= */
-
-.header-overlay {
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(4, 12, 24, 0.94) 0%,
-            rgba(4, 12, 24, 0.78) 45%,
-            rgba(4, 12, 24, 0.35) 100%
-        );
-
-    z-index: 1;
-}
-
-
-/* =========================================
-   HERO CONTENT
-========================================= */
-
-.header-content {
+.hero {
     position: relative;
 
     z-index: 2;
 
-    width: min(1200px, 90%);
-
     min-height: 100vh;
 
-    margin: auto;
-
     display: flex;
-    flex-direction: column;
-    justify-content: center;
 
-    padding-top: 85px;
+    align-items: center;
 }
 
 
-.header-text {
-    max-width: 650px;
+.hero-container {
+    width: min(
+        var(--container-width),
+        90%
+    );
+
+    padding-top:
+        var(--navbar-height);
+}
+
+
+.hero-content {
+    max-width: 720px;
+
+    animation:
+        heroFadeUp 1s ease forwards;
+}
+
+
+@keyframes heroFadeUp {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
 }
 
 
 /* =========================================
-   HEADER LABEL
+   13 - HERO BADGE
 ========================================= */
 
-.header-label {
-    color: #65b3ff;
+.hero-badge {
+    display: inline-flex;
 
-    font-size: 0.8rem;
+    align-items: center;
 
-    font-weight: 700;
+    gap: 9px;
 
-    letter-spacing: 3px;
+    padding:
+        9px 14px;
 
-    margin-bottom: 18px;
+    margin-bottom: 25px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.18);
+
+    border-radius: 50px;
+
+    background:
+        rgba(255, 255, 255, 0.06);
+
+    backdrop-filter:
+        blur(8px);
+
+    color:
+        rgba(255, 255, 255, 0.85);
+
+    font-size: 0.78rem;
+
+    letter-spacing: 0.5px;
+}
+
+
+.badge-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background:
+        var(--primary-light);
+
+    box-shadow:
+        0 0 12px
+        var(--primary-light);
+
+    animation:
+        pulseDot 2s infinite;
+}
+
+
+@keyframes pulseDot {
+
+    0%,
+    100% {
+        transform: scale(1);
+
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.5);
+
+        opacity: 0.5;
+    }
+
 }
 
 
 /* =========================================
-   MAIN TITLE
+   14 - HERO TITLE
 ========================================= */
 
-.header-title {
-    font-size: clamp(3.5rem, 7vw, 6.5rem);
+.hero-title {
+    max-width: 800px;
 
-    line-height: 0.95;
+    font-size:
+        clamp(3.2rem, 7vw, 6.5rem);
+
+    line-height: 0.98;
 
     font-weight: 800;
 
-    letter-spacing: -2px;
+    letter-spacing: -3px;
 
-    margin-bottom: 28px;
+    margin-bottom: 26px;
 }
 
 
-.header-title span {
-    color: #5aaeff;
+.hero-title span {
+    display: block;
+
+    color:
+        var(--primary-light);
 }
 
 
 /* =========================================
-   DESCRIPTION
+   15 - HERO DESCRIPTION
 ========================================= */
 
-.header-description {
-    max-width: 560px;
+.hero-description {
+    max-width: 600px;
 
-    font-size: 1.1rem;
+    color:
+        rgba(255, 255, 255, 0.78);
+
+    font-size: 1.08rem;
 
     line-height: 1.8;
-
-    color: rgba(255, 255, 255, 0.8);
 }
 
 
 /* =========================================
-   HERO BUTTONS
+   16 - HERO BUTTONS
 ========================================= */
 
-.header-buttons {
+.hero-buttons {
     display: flex;
+
     align-items: center;
 
-    gap: 15px;
+    gap: 14px;
 
-    margin-top: 35px;
+    margin-top: 34px;
 
     flex-wrap: wrap;
 }
 
 
-.primary-button,
-.secondary-button {
+.hero-primary-button,
+.hero-secondary-button {
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
 
-    min-height: 52px;
+    min-height: 54px;
 
-    padding: 0 28px;
+    padding:
+        0 25px;
 
-    border-radius: 8px;
+    border-radius: 9px;
 
-    text-decoration: none;
+    font-size: 0.92rem;
 
-    font-size: 0.95rem;
     font-weight: 600;
 
     transition:
         transform 0.3s ease,
         background 0.3s ease,
-        border-color 0.3s ease;
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 
-/* Primary Button */
+.hero-primary-button {
+    gap: 10px;
 
-.primary-button {
-    background: #1d7be8;
-    color: #ffffff;
+    background:
+        var(--primary-color);
+
+    color: var(--white);
 }
 
 
-.primary-button:hover {
-    background: #3490ff;
+.hero-primary-button:hover {
+    background:
+        var(--primary-light);
 
-    transform: translateY(-3px);
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(29, 123, 232, 0.35);
 }
 
 
-/* Secondary Button */
+.button-arrow {
+    font-size: 1.2rem;
 
-.secondary-button {
-    color: #ffffff;
-
-    border: 1px solid rgba(255, 255, 255, 0.5);
-
-    background: rgba(255, 255, 255, 0.05);
+    transition:
+        transform 0.3s ease;
 }
 
 
-.secondary-button:hover {
-    background: rgba(255, 255, 255, 0.12);
+.hero-primary-button:hover .button-arrow {
+    transform:
+        translateX(5px);
+}
 
-    transform: translateY(-3px);
+
+.hero-secondary-button {
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.35);
+
+    background:
+        rgba(255, 255, 255, 0.05);
+
+    color: var(--white);
+}
+
+
+.hero-secondary-button:hover {
+    background:
+        rgba(255, 255, 255, 0.12);
+
+    border-color:
+        rgba(255, 255, 255, 0.70);
+
+    transform:
+        translateY(-3px);
 }
 
 
 /* =========================================
-   SCROLL INDICATOR
+   17 - HERO STATISTICS
+========================================= */
+
+.hero-stats {
+    display: flex;
+
+    align-items: center;
+
+    gap: 24px;
+
+    margin-top: 55px;
+}
+
+
+.stat-item {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.stat-number {
+    color: var(--white);
+
+    font-size: 1.35rem;
+
+    font-weight: 700;
+}
+
+
+.stat-label {
+    color:
+        rgba(255, 255, 255, 0.55);
+
+    font-size: 0.78rem;
+}
+
+
+.stat-divider {
+    width: 1px;
+
+    height: 38px;
+
+    background:
+        rgba(255, 255, 255, 0.18);
+}
+
+
+/* =========================================
+   18 - SCROLL INDICATOR
 ========================================= */
 
 .scroll-indicator {
     position: absolute;
 
     left: 5%;
+
     bottom: 35px;
 
     z-index: 3;
 
     display: flex;
+
     align-items: center;
 
     gap: 12px;
 
-    color: #ffffff;
+    color:
+        rgba(255, 255, 255, 0.70);
 
-    text-decoration: none;
+    font-size: 0.78rem;
+
+    letter-spacing: 0.5px;
 }
 
 
 .scroll-line {
     width: 45px;
+
     height: 1px;
 
-    background: #65b3ff;
+    background:
+        var(--primary-light);
+
+    animation:
+        scrollLine 2s ease-in-out infinite;
 }
 
 
-.scroll-text {
-    font-size: 0.8rem;
+@keyframes scrollLine {
 
-    color: rgba(255, 255, 255, 0.7);
+    0%,
+    100% {
+        width: 30px;
+    }
 
-    letter-spacing: 1px;
+    50% {
+        width: 55px;
+    }
+
 }
 
 
 /* =========================================
-   RESPONSIVE DESIGN
+   19 - MOBILE RESPONSIVE
 ========================================= */
 
 @media (max-width: 900px) {
 
     .nav-links {
-        display: none;
+        position: fixed;
+
+        top:
+            var(--navbar-height);
+
+        left: 0;
+
+        width: 100%;
+
+        min-height:
+            calc(
+                100vh -
+                var(--navbar-height)
+            );
+
+        padding: 40px 5%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        justify-content: flex-start;
+
+        gap: 10px;
+
+        background:
+            rgba(4, 12, 24, 0.98);
+
+        transform:
+            translateX(100%);
+
+        transition:
+            transform 0.35s ease;
+    }
+
+
+    .nav-links.mobile-active {
+        transform:
+            translateX(0);
+    }
+
+
+    .nav-link {
+        width: 100%;
+
+        padding: 16px 0;
+
+        font-size: 1.15rem;
     }
 
 
@@ -569,34 +894,42 @@ body {
     }
 
 
-    .nav-container {
-        min-height: 75px;
+    body.menu-open {
+        overflow: hidden;
     }
 
 
-    .header-content {
-        padding-top: 75px;
+    .hero-title {
+        font-size:
+            clamp(
+                3.2rem,
+                9vw,
+                5.5rem
+            );
     }
 
 }
 
 
 /* =========================================
-   MOBILE DESIGN
+   20 - SMALL MOBILE DEVICES
 ========================================= */
 
 @media (max-width: 600px) {
 
-    .nav-container {
-        width: 92%;
+    :root {
+        --navbar-height: 72px;
+    }
 
-        gap: 12px;
+
+    .container {
+        width: 92%;
     }
 
 
     .brand-logo {
-        width: 42px;
-        height: 42px;
+        width: 43px;
+        height: 43px;
     }
 
 
@@ -605,168 +938,129 @@ body {
     }
 
 
-    .search-button {
-        display: none;
+    .brand-subtitle {
+        font-size: 0.62rem;
     }
 
 
-    .sign-in-button {
-        padding: 0 14px;
-
+    .login-button {
         min-height: 40px;
+
+        padding: 0 15px;
 
         font-size: 0.8rem;
     }
 
 
     .header-actions {
-        gap: 8px;
+        gap: 4px;
     }
 
 
-    .header-content {
+    .hero-container {
         width: 90%;
-
-        justify-content: center;
     }
 
 
-    .header-title {
-        font-size: clamp(3.2rem, 15vw, 4.5rem);
+    .hero-title {
+        font-size:
+            clamp(
+                3rem,
+                14vw,
+                4.7rem
+            );
 
-        line-height: 1;
+        letter-spacing: -2px;
     }
 
 
-    .header-description {
-        font-size: 0.95rem;
+    .hero-description {
+        font-size: 0.96rem;
 
-        line-height: 1.7;
+        line-height: 1.75;
     }
 
 
-    .header-buttons {
+    .hero-badge {
+        font-size: 0.67rem;
+
+        padding:
+            8px 12px;
+
+        margin-bottom: 20px;
+    }
+
+
+    .hero-buttons {
         flex-direction: column;
 
         align-items: stretch;
     }
 
 
-    .primary-button,
-    .secondary-button {
+    .hero-primary-button,
+    .hero-secondary-button {
         width: 100%;
     }
 
 
-    .header-overlay {
-        background:
-            linear-gradient(
-                180deg,
-                rgba(4, 12, 24, 0.88) 0%,
-                rgba(4, 12, 24, 0.75) 100%
-            );
+    .hero-stats {
+        gap: 14px;
+
+        margin-top: 40px;
+    }
+
+
+    .stat-number {
+        font-size: 1.1rem;
+    }
+
+
+    .stat-label {
+        font-size: 0.65rem;
+    }
+
+
+    .stat-divider {
+        height: 32px;
     }
 
 
     .scroll-indicator {
         display: none;
-    }}
-
-/* ========================================
-   EXTRA SMALL MOBILE DEVICES
-======================================== */
-
-@media (max-width: 480px) {
-
-    .header-container {
-        padding: 0 16px;
     }
 
-    .header-top {
-        min-height: 70px;
-    }
-
-    .logo {
-        gap: 10px;
-    }
-
-    .logo img {
-        width: 38px;
-        height: 38px;
-    }
-
-    .logo-text {
-        font-size: 1rem;
-    }
-
-    .menu-toggle {
-        width: 44px;
-        height: 44px;
-    }
-
-    .header-actions {
-        gap: 8px;
-    }
-
-    .header-button {
-        width: 42px;
-        height: 42px;
-    }
-
-    .hero {
-        min-height: 600px;
-    }
-
-    .hero-content {
-        padding: 100px 16px 60px;
-    }
-
-    .hero-title {
-        font-size: 2rem;
-        line-height: 1.3;
-    }
-
-    .hero-description {
-        font-size: 1rem;
-        line-height: 1.8;
-    }
-
-    .section {
-        padding: 60px 16px;
-    }
-
-    .section-title {
-        font-size: 1.8rem;
-    }
-
-    .cards-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    .card {
-        padding: 24px 20px;
-    }
-
-    .primary-button,
-    .secondary-button {
-        padding: 14px 20px;
-        font-size: 0.95rem;
-    }
 
     .header-overlay {
         background:
             linear-gradient(
                 180deg,
                 rgba(4, 12, 24, 0.90) 0%,
-                rgba(4, 12, 24, 0.80) 100%
+                rgba(4, 12, 24, 0.70) 100%
             );
     }
 
-    .scroll-indicator {
+}
+
+
+/* =========================================
+   21 - EXTRA SMALL DEVICES
+========================================= */
+
+@media (max-width: 400px) {
+
+    .brand-text {
         display: none;
     }
 
-}
 
-}
+    .hero-title {
+        font-size: 3rem;
+    }
+
+
+    .hero-stats {
+        gap: 10px;
+    }
+
+   }
