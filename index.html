@@ -1,1674 +1,1833 @@
-   <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-<title>AZU Science | The Student Platform</title>
+    <title>AZU Science</title>
 
-<style>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-/* =========================
-   GLOBAL SETTINGS
-========================= */
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
 
-html {
-    scroll-behavior: smooth;
-}
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f5f2e9;
-    color: #173b3d;
-    line-height: 1.6;
-}
+    <style>
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
+        /* =========================
+           ROOT
+        ========================== */
 
+        :root {
 
-/* =========================
-   COLORS
-========================= */
+            --dark: #062d30;
+            --dark-2: #041f22;
+            --primary: #0b5055;
+            --accent: #4f9da0;
+            --light: #f5f3ec;
+            --white: #ffffff;
+            --text: #183034;
+            --muted: #687477;
+            --border: #d9dfdc;
 
-:root {
+        }
 
-    --dark: #082f31;
 
-    --green: #123f3b;
+        /* =========================
+           RESET
+        ========================== */
 
-    --teal: #1c6b6d;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    --light-teal: #63b9c5;
 
-    --cream: #f5f2e9;
+        html {
+            scroll-behavior: smooth;
+        }
 
-    --white: #ffffff;
 
-    --text: #18363a;
+        body {
 
-    --gray: #667477;
+            font-family: "DM Sans", sans-serif;
 
-}
+            background: var(--light);
 
+            color: var(--text);
 
-/* =========================
-   NAVBAR
-========================= */
+            overflow-x: hidden;
 
-nav {
+        }
 
-    height: 75px;
 
-    background: rgba(245,242,233,0.96);
+        a {
 
-    display: flex;
+            text-decoration: none;
 
-    align-items: center;
+            color: inherit;
 
-    justify-content: space-between;
+        }
 
-    padding: 0 6%;
 
-    position: fixed;
+        img {
 
-    width: 100%;
+            max-width: 100%;
 
-    top: 0;
+            display: block;
 
-    z-index: 1000;
+        }
 
-    border-bottom: 1px solid rgba(0,0,0,0.06);
 
-}
+        /* =========================
+           NAVBAR
+        ========================== */
 
+        nav {
 
-.brand {
+            height: 74px;
 
-    display: flex;
+            background: rgba(255, 255, 255, 0.97);
 
-    align-items: center;
+            display: flex;
 
-    gap: 12px;
+            align-items: center;
 
-}
+            justify-content: space-between;
 
+            padding: 0 5%;
 
-.brand img {
+            position: fixed;
 
-    width: 48px;
+            top: 0;
 
-    height: 48px;
+            left: 0;
 
-    object-fit: contain;
+            width: 100%;
 
-}
+            z-index: 1000;
 
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 
-.brand-text h2 {
+        }
 
-    font-size: 24px;
 
-    letter-spacing: 1px;
+        .brand {
 
-    color: var(--dark);
+            display: flex;
 
-}
+            align-items: center;
 
+            gap: 12px;
 
-.brand-text p {
+        }
 
-    font-size: 10px;
 
-    color: var(--gray);
+        .brand img {
 
-}
+            width: 58px;
 
+            height: 58px;
 
-.nav-links {
+            object-fit: contain;
 
-    display: flex;
+        }
 
-    list-style: none;
 
-    gap: 28px;
+        .brand-text h1 {
 
-    font-size: 14px;
+            font-family: "Playfair Display", serif;
 
-}
+            font-size: 25px;
 
+            font-weight: 600;
 
-.nav-links a {
+            letter-spacing: 0.5px;
 
-    position: relative;
+        }
 
-}
 
+        .brand-text p {
 
-.nav-links a:hover {
+            font-size: 9px;
 
-    color: var(--teal);
+            color: var(--muted);
 
-}
+            margin-top: 2px;
 
+        }
 
-.nav-links a::after {
 
-    content: "";
+        .nav-links {
 
-    position: absolute;
+            display: flex;
 
-    width: 0;
+            align-items: center;
 
-    height: 2px;
+            gap: 28px;
 
-    background: var(--teal);
+        }
 
-    left: 0;
 
-    bottom: -8px;
+        .nav-links a {
 
-    transition: 0.3s;
+            font-size: 13px;
 
-}
+            position: relative;
 
+            transition: 0.3s;
 
-.nav-links a:hover::after {
+        }
 
-    width: 100%;
 
-}
+        .nav-links a:hover {
 
+            color: var(--primary);
 
-.nav-right {
+        }
 
-    display: flex;
 
-    align-items: center;
+        .nav-links a.active::after {
 
-    gap: 18px;
+            content: "";
 
-}
+            position: absolute;
 
+            width: 22px;
 
-.search {
+            height: 1px;
 
-    font-size: 20px;
+            background: var(--primary);
 
-}
+            left: 0;
 
+            bottom: -12px;
 
-.sign-in {
+        }
 
-    background: var(--dark);
 
-    color: white;
+        .nav-actions {
 
-    padding: 10px 20px;
+            display: flex;
 
-    border-radius: 8px;
+            align-items: center;
 
-    font-size: 14px;
+            gap: 22px;
 
-    transition: 0.3s;
+        }
 
-}
 
+        .search-btn {
 
-.sign-in:hover {
+            background: none;
 
-    background: var(--teal);
+            border: none;
 
-}
+            font-size: 17px;
 
+            cursor: pointer;
 
-.menu-btn {
+        }
 
-    display: none;
 
-    font-size: 28px;
+        .sign-btn {
 
-    cursor: pointer;
+            background: var(--dark);
 
-}
+            color: white;
 
+            padding: 12px 20px;
 
-/* =========================
-   HERO
-========================= */
+            border-radius: 7px;
 
-.hero {
+            font-size: 13px;
 
-    min-height: 760px;
+            display: flex;
 
-    padding: 150px 7% 80px;
+            align-items: center;
 
-    display: flex;
+            gap: 8px;
 
-    align-items: center;
+            transition: 0.3s;
 
-    position: relative;
+        }
 
-    color: white;
 
-    background:
+        .sign-btn:hover {
 
-    linear-gradient(
-        90deg,
-        rgba(4, 29, 30, 0.92),
-        rgba(4, 29, 30, 0.72),
-        rgba(4, 29, 30, 0.25)
-    ),
+            background: var(--primary);
 
-    url("college.jpg");
+            transform: translateY(-2px);
 
-    background-size: cover;
+        }
 
-    background-position: center;
 
-}
+        /* =========================
+           HERO
+        ========================== */
 
+        .hero {
 
-.hero-content {
+            height: 670px;
 
-    max-width: 650px;
+            margin-top: 74px;
 
-}
+            position: relative;
 
+            background-image:
+                linear-gradient(
+                    90deg,
+                    rgba(3, 22, 24, 0.92) 0%,
+                    rgba(3, 22, 24, 0.72) 32%,
+                    rgba(3, 22, 24, 0.10) 70%,
+                    rgba(3, 22, 24, 0.25) 100%
+                ),
+                url("college.jpg");
 
-.hero-label {
+            background-size: cover;
 
-    font-size: 13px;
+            background-position: center;
 
-    letter-spacing: 3px;
+            display: flex;
 
-    margin-bottom: 20px;
+            align-items: center;
 
-    color: #d9e4e3;
+        }
 
-}
 
+        .hero-content {
 
-.hero h1 {
+            width: 90%;
 
-    font-family: Georgia, serif;
+            max-width: 1250px;
 
-    font-size: 75px;
+            margin: auto;
 
-    line-height: 1;
+            color: white;
 
-    margin-bottom: 20px;
+            padding-top: 20px;
 
-}
+        }
 
 
-.hero h1 span {
+        .hero-small {
 
-    color: var(--light-teal);
+            font-size: 12px;
 
-}
+            letter-spacing: 2px;
 
+            margin-bottom: 16px;
 
-.hero h2 {
+            color: #d9e5e3;
 
-    font-size: 21px;
+        }
 
-    font-weight: normal;
 
-    margin-bottom: 25px;
+        .hero h1 {
 
-}
+            font-family: "Playfair Display", serif;
 
+            font-size: clamp(60px, 7vw, 100px);
 
-.hero-description {
+            font-weight: 500;
 
-    max-width: 500px;
+            line-height: 0.95;
 
-    color: #e1e6e5;
+            margin-bottom: 15px;
 
-    margin-bottom: 35px;
+        }
 
-    font-size: 16px;
 
-}
+        .hero h1 span {
 
+            color: #62a8aa;
 
-.hero-buttons {
+        }
 
-    display: flex;
 
-    gap: 15px;
+        .hero-subtitle {
 
-    flex-wrap: wrap;
+            font-size: 20px;
 
-}
+            margin-bottom: 25px;
 
+            color: #e4e8e7;
 
-.btn {
+        }
 
-    padding: 14px 26px;
 
-    border-radius: 30px;
+        .hero-description {
 
-    font-size: 15px;
+            max-width: 490px;
 
-    transition: 0.3s;
+            font-size: 16px;
 
-}
+            line-height: 1.7;
 
+            color: #d4dddd;
 
-.btn-primary {
+            margin-bottom: 28px;
 
-    background: var(--teal);
+        }
 
-    color: white;
 
-}
+        .hero-buttons {
 
+            display: flex;
 
-.btn-primary:hover {
+            gap: 15px;
 
-    transform: translateY(-3px);
+            align-items: center;
 
-    background: var(--light-teal);
+        }
 
-}
 
+        .primary-btn {
 
-.btn-outline {
+            background: #0d5960;
 
-    border: 1px solid white;
+            color: white;
 
-    color: white;
+            padding: 15px 24px;
 
-}
+            border-radius: 30px;
 
+            transition: 0.3s;
 
-.btn-outline:hover {
+            font-size: 14px;
 
-    background: white;
+        }
 
-    color: var(--dark);
 
-}
+        .primary-btn:hover {
 
+            transform: translateY(-3px);
 
-.scroll-down {
+            background: #167078;
 
-    position: absolute;
+        }
 
-    bottom: 35px;
 
-    left: 7%;
+        .secondary-btn {
 
-    font-size: 13px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
 
-    color: #dce4e3;
+            color: white;
 
-}
+            padding: 14px 28px;
 
+            border-radius: 30px;
 
-/* =========================
-   EXPLORE SECTION
-========================= */
+            transition: 0.3s;
 
-.explore {
+            font-size: 14px;
 
-    padding: 90px 6%;
+        }
 
-}
 
+        .secondary-btn:hover {
 
-.section-top {
+            background: white;
 
-    display: flex;
+            color: var(--dark);
 
-    justify-content: space-between;
+        }
 
-    align-items: end;
 
-    margin-bottom: 40px;
+        .scroll-down {
 
-}
+            position: absolute;
 
+            left: 5%;
 
-.section-label {
+            bottom: 25px;
 
-    font-size: 11px;
+            color: #dce5e3;
 
-    letter-spacing: 2px;
+            display: flex;
 
-    color: var(--teal);
+            flex-direction: column;
 
-    font-weight: bold;
+            gap: 10px;
 
-}
+            font-size: 12px;
 
+        }
 
-.section-title {
 
-    font-family: Georgia, serif;
+        .scroll-line {
 
-    font-size: 48px;
+            width: 1px;
 
-    color: var(--text);
+            height: 35px;
 
-    margin-top: 8px;
+            background: white;
 
-}
+            margin-left: 6px;
 
+        }
 
-.section-description {
 
-    color: var(--gray);
+        .hero-quote {
 
-    margin-top: 8px;
+            position: absolute;
 
-}
+            right: 6%;
 
+            bottom: 25px;
 
-.section-side-text {
+            color: white;
 
-    font-size: 12px;
+            text-align: right;
 
-    letter-spacing: 3px;
+            font-family: "Playfair Display", serif;
 
-    color: var(--gray);
+            font-style: italic;
 
-}
+            font-size: 17px;
 
+            line-height: 1.5;
 
-/* =========================
-   FEATURE CARDS
-========================= */
+        }
 
-.feature-grid {
 
-    display: grid;
+        /* =========================
+           EXPLORE SECTION
+        ========================== */
 
-    grid-template-columns: repeat(4, 1fr);
+        .explore {
 
-    gap: 20px;
+            padding: 75px 5% 45px;
 
-}
+            background: #f6f4ee;
 
+        }
 
-.feature-card {
 
-    min-height: 290px;
+        .section-head {
 
-    padding: 30px;
+            display: flex;
 
-    background:
+            align-items: end;
 
-    linear-gradient(
-        135deg,
-        #ffffff,
-        #eef3f1
-    );
+            justify-content: space-between;
 
-    border-radius: 12px;
+            margin-bottom: 35px;
 
-    border: 1px solid rgba(0,0,0,0.05);
+        }
 
-    transition: 0.35s;
 
-    position: relative;
+        .section-label {
 
-    overflow: hidden;
+            font-size: 10px;
 
-}
+            letter-spacing: 2px;
 
+            color: var(--primary);
 
-.feature-card:hover {
+            display: block;
 
-    transform: translateY(-8px);
+            margin-bottom: 12px;
 
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
 
-}
 
+        .section-title {
 
-.feature-icon {
+            font-family: "Playfair Display", serif;
 
-    font-size: 40px;
+            font-size: 42px;
 
-    margin-bottom: 25px;
+            font-weight: 600;
 
-}
+            margin-bottom: 7px;
 
+        }
 
-.feature-card h3 {
 
-    font-family: Georgia, serif;
+        .section-desc {
 
-    font-size: 25px;
+            color: var(--muted);
 
-    margin-bottom: 12px;
+            font-size: 15px;
 
-}
+        }
 
 
-.feature-card p {
+        .section-side-text {
 
-    color: var(--gray);
+            font-size: 11px;
 
-    font-size: 14px;
+            letter-spacing: 2px;
 
-    max-width: 220px;
+            color: #7d8584;
 
-}
+            margin-bottom: 15px;
 
+        }
 
-.card-arrow {
 
-    position: absolute;
+        .explore-grid {
 
-    bottom: 25px;
+            display: grid;
 
-    left: 30px;
+            grid-template-columns: repeat(4, 1fr);
 
-    width: 38px;
+            gap: 22px;
 
-    height: 38px;
+        }
 
-    border-radius: 50%;
 
-    background: var(--dark);
+        .explore-card {
 
-    color: white;
+            min-height: 260px;
 
-    display: flex;
+            background: rgba(255, 255, 255, 0.45);
 
-    align-items: center;
+            border: 1px solid #d8dfdd;
 
-    justify-content: center;
+            border-radius: 10px;
 
-}
+            padding: 28px;
 
+            position: relative;
 
-/* =========================
-   STATS
-========================= */
+            overflow: hidden;
 
-.stats {
+            transition: 0.35s;
 
-    background: var(--dark);
+        }
 
-    color: white;
 
-    padding: 45px 6%;
+        .explore-card:hover {
 
-    display: grid;
+            transform: translateY(-7px);
 
-    grid-template-columns: repeat(4, 1fr);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
 
-}
+        }
 
 
-.stat {
+        .explore-card i {
 
-    text-align: center;
+            font-size: 36px;
 
-    border-right: 1px solid rgba(255,255,255,0.25);
+            color: var(--dark);
 
-}
+            margin-bottom: 18px;
 
+        }
 
-.stat:last-child {
 
-    border-right: none;
+        .explore-card h3 {
 
-}
+            font-family: "Playfair Display", serif;
 
+            font-size: 24px;
 
-.stat-number {
+            margin-bottom: 10px;
 
-    font-family: Georgia, serif;
+        }
 
-    font-size: 30px;
 
-    color: var(--light-teal);
+        .explore-card p {
 
-}
+            color: #566366;
 
+            font-size: 14px;
 
-.stat p {
+            line-height: 1.55;
 
-    font-size: 13px;
+            max-width: 210px;
 
-    color: #d9e2e1;
+        }
 
-}
 
+        .circle-arrow {
 
-/* =========================
-   NEWS
-========================= */
+            width: 42px;
 
-.news {
+            height: 42px;
 
-    padding: 90px 6%;
+            border-radius: 50%;
 
-}
+            background: var(--dark);
 
+            color: white;
 
-.news-header {
+            display: flex;
 
-    display: flex;
+            align-items: center;
 
-    justify-content: space-between;
+            justify-content: center;
 
-    align-items: center;
+            position: absolute;
 
-    margin-bottom: 40px;
+            bottom: 25px;
 
-}
+            left: 25px;
 
+        }
 
-.news-button {
 
-    border: 1px solid var(--teal);
+        /* =========================
+           STATS
+        ========================== */
 
-    padding: 12px 20px;
+        .stats {
 
-    border-radius: 30px;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(4, 42, 46, 0.98),
+                    rgba(3, 33, 37, 0.98)
+                );
 
-    font-size: 13px;
+            color: white;
 
-    transition: 0.3s;
+            padding: 28px 5%;
 
-}
+        }
 
 
-.news-button:hover {
+        .stats-container {
 
-    background: var(--teal);
+            display: grid;
 
-    color: white;
+            grid-template-columns: repeat(4, 1fr);
 
-}
+        }
 
 
-.news-grid {
+        .stat {
 
-    display: grid;
+            display: flex;
 
-    grid-template-columns: repeat(3, 1fr);
+            align-items: center;
 
-    gap: 25px;
+            justify-content: center;
 
-}
+            gap: 18px;
 
+            border-right: 1px solid rgba(255, 255, 255, 0.25);
 
-.news-card {
+        }
 
-    background: white;
 
-    border-radius: 12px;
+        .stat:last-child {
 
-    overflow: hidden;
+            border: none;
 
-    border: 1px solid rgba(0,0,0,0.05);
+        }
 
-    transition: 0.3s;
 
-}
+        .stat i {
 
+            font-size: 36px;
 
-.news-card:hover {
+            color: #8ac0c0;
 
-    transform: translateY(-6px);
+        }
 
-    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
 
-}
+        .stat h3 {
 
+            font-family: "Playfair Display", serif;
 
-.news-image {
+            font-size: 25px;
 
-    height: 170px;
+            font-weight: 500;
 
-    background:
+        }
 
-    linear-gradient(
-        135deg,
-        var(--teal),
-        var(--dark)
-    );
 
-    display: flex;
+        .stat p {
 
-    align-items: center;
+            font-size: 12px;
 
-    justify-content: center;
+            color: #c4d0cf;
 
-    font-size: 55px;
+            margin-top: 3px;
 
-}
+        }
 
 
-.news-content {
+        /* =========================
+           NEWS
+        ========================== */
 
-    padding: 25px;
+        .news {
 
-}
+            padding: 75px 5%;
 
+            background: #f6f4ee;
 
-.news-meta {
+        }
 
-    font-size: 11px;
 
-    color: var(--teal);
+        .view-news {
 
-    margin-bottom: 10px;
+            border: 1px solid var(--primary);
 
-}
+            padding: 12px 20px;
 
+            border-radius: 25px;
 
-.news-card h3 {
+            font-size: 13px;
 
-    font-family: Georgia, serif;
+            transition: 0.3s;
 
-    font-size: 21px;
+        }
 
-    margin-bottom: 10px;
 
-}
+        .view-news:hover {
 
+            background: var(--dark);
 
-.news-card p {
+            color: white;
 
-    color: var(--gray);
+        }
 
-    font-size: 13px;
 
-    margin-bottom: 18px;
+        .news-grid {
 
-}
+            display: grid;
 
+            grid-template-columns: repeat(3, 1fr);
 
-.read-more {
+            gap: 28px;
 
-    font-size: 13px;
+        }
 
-    color: var(--teal);
 
-    font-weight: bold;
+        .news-card {
 
-}
+            background: white;
 
+            border: 1px solid #dfe3e1;
 
-/* =========================
-   ABOUT
-========================= */
+            border-radius: 10px;
 
-.about {
+            overflow: hidden;
 
-    background:
+            display: grid;
 
-    linear-gradient(
-        90deg,
-        var(--dark),
-        #10494a
-    );
+            grid-template-columns: 38% 62%;
 
-    color: white;
+            min-height: 170px;
 
-    padding: 80px 8%;
+            transition: 0.3s;
 
-    display: grid;
+        }
 
-    grid-template-columns: 1fr 1.5fr;
 
-    gap: 80px;
+        .news-card:hover {
 
-    align-items: center;
+            transform: translateY(-5px);
 
-}
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
 
+        }
 
-.about-title {
 
-    font-family: Georgia, serif;
+        .news-card img {
 
-    font-size: 50px;
+            width: 100%;
 
-    line-height: 1.1;
+            height: 100%;
 
-}
+            object-fit: cover;
 
+        }
 
-.about-content {
 
-    border-left: 1px solid rgba(255,255,255,0.4);
+        .news-content {
 
-    padding-left: 40px;
+            padding: 17px;
 
-}
+            position: relative;
 
+        }
 
-.about-content p {
 
-    color: #d7e1df;
+        .news-tag {
 
-    max-width: 550px;
+            display: inline-block;
 
-    margin-bottom: 25px;
+            background: var(--primary);
 
-}
+            color: white;
 
+            font-size: 9px;
 
-.team-btn {
+            padding: 6px 9px;
 
-    display: inline-block;
+            border-radius: 3px;
 
-    border: 1px solid white;
+            margin-bottom: 10px;
 
-    padding: 12px 25px;
+        }
 
-    border-radius: 30px;
 
-    transition: 0.3s;
+        .news-date {
 
-}
+            font-size: 9px;
 
+            color: #7b8382;
 
-.team-btn:hover {
+            margin-left: 5px;
 
-    background: white;
+        }
 
-    color: var(--dark);
 
-}
+        .news-content h3 {
 
+            font-family: "Playfair Display", serif;
 
-/* =========================
-   FOOTER
-========================= */
+            font-size: 17px;
 
-footer {
+            margin-bottom: 7px;
 
-    background: var(--cream);
+        }
 
-    padding: 60px 6% 0;
 
-}
+        .news-content p {
 
+            font-size: 11px;
 
-.footer-grid {
+            color: #6c7474;
 
-    display: grid;
+            line-height: 1.5;
 
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+            margin-bottom: 10px;
 
-    gap: 50px;
+        }
 
-    padding-bottom: 50px;
 
-}
+        .read-more {
 
+            font-size: 11px;
 
-.footer-brand {
+            color: var(--primary);
 
-    display: flex;
+            font-weight: 600;
 
-    align-items: flex-start;
+        }
 
-    gap: 15px;
 
-}
+        /* =========================
+           ABOUT
+        ========================== */
 
+        .about {
 
-.footer-brand img {
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(3, 42, 46, 0.98),
+                    rgba(3, 42, 46, 0.94)
+                );
 
-    width: 70px;
+            color: white;
 
-    height: 70px;
+            padding: 70px 5%;
 
-    object-fit: contain;
+            position: relative;
 
-}
+            overflow: hidden;
 
+        }
 
-.footer-brand h2 {
 
-    font-family: Georgia, serif;
+        .about::after {
 
-    font-size: 27px;
+            content: "";
 
-}
+            position: absolute;
 
+            width: 500px;
 
-.footer-brand p {
+            height: 500px;
 
-    font-size: 12px;
+            border-radius: 50%;
 
-    color: var(--gray);
+            border: 1px solid rgba(255,255,255,0.04);
 
-    margin-top: 8px;
+            right: -200px;
 
-}
+            bottom: -300px;
 
+        }
 
-.footer-column h4 {
 
-    margin-bottom: 18px;
+        .about-content {
 
-    font-size: 14px;
+            display: grid;
 
-}
+            grid-template-columns: 1fr 1px 1fr;
 
+            gap: 60px;
 
-.footer-column a {
+            align-items: center;
 
-    display: block;
+            position: relative;
 
-    font-size: 12px;
+            z-index: 2;
 
-    color: var(--gray);
+        }
 
-    margin-bottom: 8px;
 
-}
+        .about-divider {
 
+            width: 1px;
 
-.footer-column a:hover {
+            height: 110px;
 
-    color: var(--teal);
+            background: rgba(255, 255, 255, 0.35);
 
-}
+        }
 
 
-.socials {
+        .about h2 {
 
-    display: flex;
+            font-family: "Playfair Display", serif;
 
-    gap: 10px;
+            font-size: 42px;
 
-    margin-top: 15px;
+            line-height: 1.15;
 
-}
+            margin-top: 15px;
 
+        }
 
-.social {
 
-    width: 32px;
+        .about-right p {
 
-    height: 32px;
+            max-width: 430px;
 
-    border-radius: 50%;
+            line-height: 1.7;
 
-    background: var(--dark);
+            color: #d5dfdd;
 
-    color: white;
+            margin-bottom: 24px;
 
-    display: flex;
+        }
 
-    align-items: center;
 
-    justify-content: center;
+        .meet-team-btn {
 
-    font-size: 13px;
+            border: 1px solid rgba(255, 255, 255, 0.7);
 
-}
+            border-radius: 25px;
 
+            padding: 13px 20px;
 
-.footer-bottom {
+            display: inline-block;
 
-    border-top: 1px solid rgba(0,0,0,0.1);
+            font-size: 13px;
 
-    padding: 20px 0;
+        }
 
-    display: flex;
 
-    justify-content: space-between;
+        .meet-team-btn:hover {
 
-    font-size: 11px;
+            background: white;
 
-    color: var(--gray);
+            color: var(--dark);
 
-}
+        }
 
 
-/* =========================
-   MOBILE
-========================= */
+        .about-quote {
 
-@media(max-width: 900px) {
+            position: absolute;
 
-    .nav-links {
-        display: none;
-    }
+            right: 7%;
 
-    .menu-btn {
-        display: block;
-    }
+            bottom: 35px;
 
-    .feature-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+            z-index: 2;
 
-    .news-grid {
-        grid-template-columns: 1fr;
-    }
+            font-family: "Playfair Display", serif;
 
-    .about {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
+            font-style: italic;
 
-    .footer-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+            font-size: 17px;
 
-}
+            color: #e1e9e7;
 
+        }
 
-@media(max-width: 600px) {
 
-    nav {
-        padding: 0 5%;
-    }
+        /* =========================
+           FOOTER
+        ========================== */
 
-    .brand-text h2 {
-        font-size: 19px;
-    }
+        footer {
 
-    .brand-text p {
-        display: none;
-    }
+            background: #f6f4ee;
 
-    .search {
-        display: none;
-    }
+        }
 
-    .sign-in {
-        padding: 8px 14px;
-        font-size: 12px;
-    }
 
-    .hero {
-        min-height: 700px;
-        padding: 130px 7% 80px;
-    }
+        .footer-main {
 
-    .hero h1 {
-        font-size: 52px;
-    }
+            padding: 55px 5%;
 
-    .section-top,
-    .news-header {
-        display: block;
-    }
+            display: grid;
 
-    .section-side-text {
-        margin-top: 15px;
-    }
+            grid-template-columns: 2fr 1fr 1fr 1fr;
 
-    .section-title {
-        font-size: 38px;
-    }
+            gap: 50px;
 
-    .feature-grid {
-        grid-template-columns: 1fr;
-    }
+        }
 
-    .stats {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-    }
 
-    .stat {
-        border-right: none;
-    }
+        .footer-logo {
 
-    .about-title {
-        font-size: 40px;
-    }
+            display: flex;
 
-    .about-content {
-        border-left: none;
-        padding-left: 0;
-    }
+            align-items: center;
 
-    .footer-grid {
-        grid-template-columns: 1fr;
-    }
+            gap: 15px;
 
-    .footer-bottom {
-        flex-direction: column;
-        gap: 8px;
-    }
+        }
 
-}
 
-</style>
+        .footer-logo img {
+
+            width: 75px;
+
+            height: 75px;
+
+            object-fit: contain;
+
+        }
+
+
+        .footer-logo h2 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 26px;
+
+        }
+
+
+        .footer-logo p {
+
+            font-size: 11px;
+
+            line-height: 1.5;
+
+            color: #6d7777;
+
+            margin-top: 6px;
+
+        }
+
+
+        .footer-links {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 7px;
+
+        }
+
+
+        .footer-links h4,
+        .footer-social h4 {
+
+            font-size: 12px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .footer-links a {
+
+            font-size: 11px;
+
+            color: #5e6968;
+
+            transition: 0.2s;
+
+        }
+
+
+        .footer-links a:hover {
+
+            color: var(--primary);
+
+            transform: translateX(3px);
+
+        }
+
+
+        .social-icons {
+
+            display: flex;
+
+            gap: 9px;
+
+            margin: 14px 0;
+
+        }
+
+
+        .social-icons a {
+
+            width: 30px;
+
+            height: 30px;
+
+            border-radius: 50%;
+
+            background: var(--dark);
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 13px;
+
+        }
+
+
+        .footer-social p {
+
+            font-size: 11px;
+
+            color: #697272;
+
+            line-height: 1.5;
+
+        }
+
+
+        .footer-bottom {
+
+            background: var(--dark-2);
+
+            color: #d4dddd;
+
+            padding: 20px 5%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            font-size: 11px;
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 950px) {
+
+            .nav-links {
+
+                display: none;
+
+            }
+
+
+            .explore-grid {
+
+                grid-template-columns: repeat(2, 1fr);
+
+            }
+
+
+            .news-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .footer-main {
+
+                grid-template-columns: repeat(2, 1fr);
+
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            nav {
+
+                padding: 0 15px;
+
+                height: 65px;
+
+            }
+
+
+            .brand img {
+
+                width: 45px;
+
+                height: 45px;
+
+            }
+
+
+            .brand-text h1 {
+
+                font-size: 19px;
+
+            }
+
+
+            .brand-text p {
+
+                display: none;
+
+            }
+
+
+            .sign-btn {
+
+                padding: 10px 13px;
+
+                font-size: 11px;
+
+            }
+
+
+            .nav-actions {
+
+                gap: 12px;
+
+            }
+
+
+            .hero {
+
+                margin-top: 65px;
+
+                height: 620px;
+
+            }
+
+
+            .hero h1 {
+
+                font-size: 58px;
+
+            }
+
+
+            .hero-subtitle {
+
+                font-size: 16px;
+
+            }
+
+
+            .hero-description {
+
+                font-size: 14px;
+
+            }
+
+
+            .hero-quote {
+
+                display: none;
+
+            }
+
+
+            .section-head {
+
+                display: block;
+
+            }
+
+
+            .section-side-text {
+
+                margin-top: 20px;
+
+            }
+
+
+            .explore-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .stats-container {
+
+                grid-template-columns: repeat(2, 1fr);
+
+                gap: 25px;
+
+            }
+
+
+            .stat {
+
+                border: none;
+
+                justify-content: flex-start;
+
+            }
+
+
+            .section-title {
+
+                font-size: 34px;
+
+            }
+
+
+            .about-content {
+
+                grid-template-columns: 1fr;
+
+                gap: 30px;
+
+            }
+
+
+            .about-divider {
+
+                display: none;
+
+            }
+
+
+            .about h2 {
+
+                font-size: 36px;
+
+            }
+
+
+            .about-quote {
+
+                display: none;
+
+            }
+
+
+            .footer-main {
+
+                grid-template-columns: 1fr;
+
+                gap: 30px;
+
+            }
+
+
+            .footer-bottom {
+
+                flex-direction: column;
+
+                gap: 10px;
+
+            }
+
+        }
+
+    </style>
 
 </head>
 
 
 <body>
-
-
-<!-- =========================
+   <!-- =========================
      NAVIGATION
 ========================= -->
 
 <nav>
-
     <div class="brand">
-
         <img src="logo.png" alt="AZU Science Logo">
-
+        
         <div class="brand-text">
-
             <h2>AZU Science</h2>
-
             <p>The Student Platform for the Faculty of Science</p>
-
         </div>
-
     </div>
 
-
-    <ul class="nav-links">
-
-        <li><a href="#home">Home</a></li>
-
-        <li><a href="#academic">Academic</a></li>
-
-        <li><a href="#research">Research</a></li>
-
-        <li><a href="#opportunities">Opportunities</a></li>
-
-        <li><a href="#news">News</a></li>
-
-        <li><a href="#community">Community</a></li>
-
-        <li><a href="#about">About</a></li>
-
-    </ul>
-
-
-    <div class="nav-right">
-
-        <div class="search">⌕</div>
-
-        <a href="#" class="sign-in">
-
-            ♙ Sign In
-
-        </a>
-
-        <div class="menu-btn">
-
-            ☰
-
-        </div>
-
+    <div class="nav-links">
+        <a href="#home" class="active">Home</a>
+        <a href="#academic">Academic</a>
+        <a href="#research">Research</a>
+        <a href="#opportunities">Opportunities</a>
+        <a href="#news">News</a>
+        <a href="#community">Community</a>
+        <a href="#about">About</a>
     </div>
 
+    <div class="nav-actions">
+        <span class="search-icon">⌕</span>
+        <a href="#" class="sign-in">♙ Sign In</a>
+    </div>
 </nav>
 
 
-
 <!-- =========================
-     HERO
+     HERO SECTION
 ========================= -->
 
 <section class="hero" id="home">
 
+    <div class="hero-overlay"></div>
+
     <div class="hero-content">
 
-        <p class="hero-label">
-
+        <span class="eyebrow">
             AL-AZHAR UNIVERSITY
-
-        </p>
-
+        </span>
 
         <h1>
-
             AZU <span>Science</span>
-
         </h1>
 
-
         <h2>
-
             The Student Platform for the Faculty of Science
-
         </h2>
 
-
-        <p class="hero-description">
-
+        <p>
             Everything you need for your academic journey,
-            research, opportunities and student life —
-            all in one place.
-
+            research, opportunities and student life — in one place.
         </p>
-
 
         <div class="hero-buttons">
 
-            <a href="#explore"
-               class="btn btn-primary">
-
+            <a href="#explore" class="primary-btn">
                 Explore Platform →
-
             </a>
 
-
-            <a href="#academic"
-               class="btn btn-outline">
-
+            <a href="#" class="secondary-btn">
                 Student Login
-
             </a>
 
         </div>
 
+        <div class="scroll-down">
+            <span>↓</span>
+            <p>Scroll Down</p>
+        </div>
+
     </div>
 
-
-    <div class="scroll-down">
-
-        ↓ Scroll Down
-
+    <div class="hero-quote">
+        <span>“Science today</span>
+        <strong>A brighter tomorrow.”</strong>
     </div>
 
 </section>
 
 
-
 <!-- =========================
-     EXPLORE
+     EXPLORE SECTION
 ========================= -->
 
-<section class="explore" id="explore">
+<section class="explore-section" id="explore">
 
-
-    <div class="section-top">
+    <div class="section-header">
 
         <div>
-
-            <p class="section-label">
-
+            <span class="section-label">
                 EXPLORE
+            </span>
 
-            </p>
-
-
-            <h2 class="section-title">
-
+            <h2>
                 What are you looking for?
-
             </h2>
 
-
-            <p class="section-description">
-
+            <p>
                 Access everything you need with just one click.
-
             </p>
-
         </div>
 
-
-        <p class="section-side-text">
-
+        <div class="section-words">
             STUDY · RESEARCH · GROW · BELONG
-
-        </p>
+        </div>
 
     </div>
 
 
-
-    <div class="feature-grid">
-
+    <div class="cards-container">
 
         <!-- Academic -->
 
-        <div class="feature-card"
-             id="academic">
+        <div class="feature-card" id="academic">
 
-            <div class="feature-icon">
-
-                📚
-
+            <div class="card-icon">
+                ▥
             </div>
 
-
             <h3>
-
                 Academic
-
             </h3>
 
-
             <p>
-
                 Lectures, sections, study materials,
-                schedules and academic resources.
-
+                schedules and more.
             </p>
 
-
-            <a href="#"
-               class="card-arrow">
-
+            <a href="#" class="circle-btn">
                 →
-
             </a>
 
-        </div>
+            <div class="card-decoration">
+                📖
+            </div>
 
+        </div>
 
 
         <!-- Research -->
 
-        <div class="feature-card"
-             id="research">
+        <div class="feature-card" id="research">
 
-            <div class="feature-icon">
-
+            <div class="card-icon">
                 🔬
-
             </div>
 
-
             <h3>
-
                 Research
-
             </h3>
 
-
             <p>
-
                 Discover research opportunities,
                 projects and scientific resources.
-
             </p>
 
-
-            <a href="#"
-               class="card-arrow">
-
+            <a href="#" class="circle-btn">
                 →
-
             </a>
 
-        </div>
+            <div class="card-decoration">
+                🔬
+            </div>
 
+        </div>
 
 
         <!-- Opportunities -->
 
-        <div class="feature-card"
-             id="opportunities">
+        <div class="feature-card" id="opportunities">
 
-            <div class="feature-icon">
-
+            <div class="card-icon">
                 💼
-
             </div>
 
-
             <h3>
-
                 Opportunities
-
             </h3>
 
-
             <p>
-
                 Internships, scholarships,
                 competitions and scientific events.
-
             </p>
 
-
-            <a href="#"
-               class="card-arrow">
-
+            <a href="#" class="circle-btn">
                 →
-
             </a>
 
-        </div>
+            <div class="card-decoration">
+                ◎
+            </div>
 
+        </div>
 
 
         <!-- News -->
 
         <div class="feature-card">
 
-            <div class="feature-icon">
-
+            <div class="card-icon">
                 📢
-
             </div>
 
-
             <h3>
-
                 News
-
             </h3>
 
-
             <p>
-
                 Latest announcements,
                 faculty news and upcoming events.
-
             </p>
 
-
-            <a href="#news"
-               class="card-arrow">
-
+            <a href="#news" class="circle-btn">
                 →
-
             </a>
 
-        </div>
+            <div class="card-decoration">
+                ▤
+            </div>
 
+        </div>
 
     </div>
 
 </section>
-
 
 
 <!-- =========================
      STATISTICS
 ========================= -->
 
-<section class="stats">
+<section class="stats-section">
 
+    <div class="stat-item">
 
-    <div class="stat">
-
-        <div class="stat-number">
-
-            5,000+
-
+        <div class="stat-icon">
+            👥
         </div>
 
-        <p>
-
-            Students
-
-        </p>
+        <div>
+            <h3>5,000+</h3>
+            <p>Students</p>
+        </div>
 
     </div>
 
 
+    <div class="stat-item">
 
-    <div class="stat">
-
-        <div class="stat-number">
-
-            150+
-
+        <div class="stat-icon">
+            👨‍🏫
         </div>
 
-        <p>
-
-            Academic Staff
-
-        </p>
+        <div>
+            <h3>150+</h3>
+            <p>Academic Staff</p>
+        </div>
 
     </div>
 
 
+    <div class="stat-item">
 
-    <div class="stat">
-
-        <div class="stat-number">
-
-            20+
-
+        <div class="stat-icon">
+            ⚗
         </div>
 
-        <p>
-
-            Research Projects
-
-        </p>
+        <div>
+            <h3>20+</h3>
+            <p>Research Projects</p>
+        </div>
 
     </div>
 
 
+    <div class="stat-item">
 
-    <div class="stat">
-
-        <div class="stat-number">
-
-            10+
-
+        <div class="stat-icon">
+            🏛
         </div>
 
-        <p>
-
-            Departments
-
-        </p>
+        <div>
+            <h3>10+</h3>
+            <p>Departments</p>
+        </div>
 
     </div>
-
 
 </section>
 
 
-
 <!-- =========================
-     NEWS
+     NEWS SECTION
 ========================= -->
 
-<section class="news"
-         id="news">
-
+<section class="news-section" id="news">
 
     <div class="news-header">
 
         <div>
 
-            <p class="section-label">
-
+            <span class="section-label">
                 LATEST UPDATES
+            </span>
 
-            </p>
-
-
-            <h2 class="section-title">
-
+            <h2>
                 News & Announcements
-
             </h2>
 
-
-            <p class="section-description">
-
-                Stay informed with the latest news
-                from the faculty and our team.
-
+            <p>
+                Stay updated with the latest news from the faculty and our team.
             </p>
 
         </div>
 
-
-        <a href="#"
-           class="news-button">
-
+        <a href="#" class="view-all">
             View All News →
-
         </a>
 
     </div>
 
 
-
     <div class="news-grid">
 
 
-        <!-- NEWS 1 -->
+        <!-- News 1 -->
 
         <article class="news-card">
 
-            <div class="news-image">
-
-                🏛️
-
-            </div>
-
+            <img src="college.jpg" alt="Al-Azhar University">
 
             <div class="news-content">
 
                 <div class="news-meta">
+                    <span class="news-tag">
+                        News
+                    </span>
 
-                    NEWS · SEP 5, 2026
-
+                    <small>
+                        Sep 5, 2026
+                    </small>
                 </div>
 
-
                 <h3>
-
                     Start of the New Academic Year
-
                 </h3>
 
-
                 <p>
-
                     Important information for all students
                     regarding registration and schedules.
-
                 </p>
 
-
-                <a href="#"
-                   class="read-more">
-
+                <a href="#" class="read-more">
                     Read More →
-
                 </a>
 
             </div>
@@ -1676,47 +1835,37 @@ footer {
         </article>
 
 
-
-        <!-- NEWS 2 -->
+        <!-- News 2 -->
 
         <article class="news-card">
 
-            <div class="news-image">
-
-                🌌
-
-            </div>
-
+            <img src="IMG-20260906-WA0048.jpg" alt="Research">
 
             <div class="news-content">
 
                 <div class="news-meta">
 
-                    OPPORTUNITY · AUG 28, 2026
+                    <span class="news-tag">
+                        Opportunity
+                    </span>
+
+                    <small>
+                        Aug 28, 2026
+                    </small>
 
                 </div>
 
-
                 <h3>
-
-                    NASA Space Apps Challenge
-
+                    Science & Research Opportunities
                 </h3>
 
-
                 <p>
-
-                    Join one of the world's largest
-                    hackathons and explore innovation.
-
+                    Discover new opportunities, projects
+                    and resources for science students.
                 </p>
 
-
-                <a href="#"
-                   class="read-more">
-
+                <a href="#" class="read-more">
                     Read More →
-
                 </a>
 
             </div>
@@ -1724,216 +1873,208 @@ footer {
         </article>
 
 
-
-        <!-- NEWS 3 -->
+        <!-- News 3 -->
 
         <article class="news-card">
 
-            <div class="news-image">
-
-                🧪
-
-            </div>
-
+            <img src="FB_IMG_1787890237301.jpg" alt="Scientific Workshop">
 
             <div class="news-content">
 
                 <div class="news-meta">
 
-                    EVENT · AUG 20, 2026
+                    <span class="news-tag">
+                        Event
+                    </span>
+
+                    <small>
+                        Aug 20, 2026
+                    </small>
 
                 </div>
 
-
                 <h3>
-
                     Scientific Research Workshop
-
                 </h3>
 
-
                 <p>
-
                     A workshop on how to start
-                    your scientific research journey.
-
+                    your research journey.
                 </p>
 
-
-                <a href="#"
-                   class="read-more">
-
+                <a href="#" class="read-more">
                     Read More →
-
                 </a>
 
             </div>
 
         </article>
-
 
     </div>
 
 </section>
-
 
 
 <!-- =========================
-     ABOUT
+     ABOUT SECTION
 ========================= -->
 
-<section class="about"
-         id="about">
+<section class="about-section" id="about">
 
-
-    <div>
-
-        <p class="section-label"
-           style="color:#78c5ce;">
-
-            ABOUT US
-
-        </p>
-
-
-        <h2 class="about-title">
-
-            Built by Students.<br>
-
-            For Students.
-
-        </h2>
-
-    </div>
-
-
+    <div class="about-overlay"></div>
 
     <div class="about-content">
 
-        <p>
-    AZU Science is a student-led platform built for the
-    Faculty of Science at Al-Azhar University.
-    Our mission is to create one central digital space
-    where students can access academic resources,
-    scientific opportunities, news, events and useful
-    tools throughout their university journey.
-</p>
+        <div class="about-left">
 
-<div class="about-features">
+            <span class="section-label light">
+                ABOUT US
+            </span>
 
-    <div class="about-feature">
-        <div class="feature-icon">🎓</div>
-        <div>
-            <h3>For Students</h3>
-            <p>
-                Everything students need in one organized
-                and easy-to-use platform.
-            </p>
+            <h2>
+                Built by Students.<br>
+                For Students.
+            </h2>
+
         </div>
-    </div>
 
-    <div class="about-feature">
-        <div class="feature-icon">🔬</div>
-        <div>
-            <h3>Powered by Science</h3>
+
+        <div class="about-middle">
+
             <p>
-                Explore research, scientific projects,
-                opportunities and academic knowledge.
+                AZU Science is a student-driven platform created
+                to make academic life at the Faculty of Science easier,
+                more connected, and more accessible.
             </p>
-        </div>
-    </div>
 
-    <div class="about-feature">
-        <div class="feature-icon">🤝</div>
-        <div>
-            <h3>Built by the Community</h3>
+            <a href="#" class="meet-btn">
+                Meet the Team →
+            </a>
+
+        </div>
+
+
+        <div class="about-quote">
+
             <p>
-                Created by students to support, connect
-                and empower other students.
+                “Knowledge
+                <br>
+                builds nations.”
             </p>
+
         </div>
+
     </div>
-
-</div>
-
-</div>
-
-</div>
 
 </section>
 
 
-<!-- FOOTER -->
+<!-- =========================
+     FOOTER
+========================= -->
 
-<footer class="footer">
+<footer id="community">
 
-    <div class="footer-container">
+    <div class="footer-main">
+
+
+        <!-- Brand -->
 
         <div class="footer-brand">
 
-            <div class="footer-logo">
+            <img src="logo.png" alt="AZU Science Logo">
 
-                <span class="footer-logo-mark">AZU</span>
+            <div>
 
-                <div>
-                    <h3>AZU Science</h3>
+                <h2>
+                    AZU Science
+                </h2>
 
-                    <p>
-                        The student platform for the
-                        Faculty of Science.
-                    </p>
-                </div>
+                <p>
+                    The Student Platform for the Faculty of Science
+                </p>
+
+                <p>
+                    Al-Azhar University
+                </p>
 
             </div>
 
         </div>
 
 
+        <!-- Quick Links -->
+
         <div class="footer-links">
 
-            <div class="footer-column">
+            <h4>
+                Quick Links
+            </h4>
 
-                <h4>Platform</h4>
+            <a href="#home">Home</a>
+            <a href="#academic">Academic</a>
+            <a href="#research">Research</a>
+            <a href="#opportunities">Opportunities</a>
+            <a href="#news">News</a>
+            <a href="#community">Community</a>
 
-                <a href="#home">Home</a>
+        </div>
 
-                <a href="#features">Explore</a>
 
-                <a href="#news">News</a>
+        <!-- Support -->
 
-                <a href="#about">About Us</a>
+        <div class="footer-links">
+
+            <h4>
+                Support
+            </h4>
+
+            <a href="#">
+                FAQ
+            </a>
+
+            <a href="#">
+                Contact Us
+            </a>
+
+            <a href="#">
+                Report an Issue
+            </a>
+
+        </div>
+
+
+        <!-- Social -->
+
+        <div class="footer-social">
+
+            <h4>
+                Follow Us
+            </h4>
+
+            <div class="social-icons">
+
+                <a href="#">
+                    f
+                </a>
+
+                <a href="#">
+                    ◎
+                </a>
+
+                <a href="#">
+                    ▶
+                </a>
+
+                <a href="#">
+                    in
+                </a>
 
             </div>
 
-
-            <div class="footer-column">
-
-                <h4>Resources</h4>
-
-                <a href="#">Study Materials</a>
-
-                <a href="#">Research Hub</a>
-
-                <a href="#">Opportunities</a>
-
-                <a href="#">Student Services</a>
-
-            </div>
-
-
-            <div class="footer-column">
-
-                <h4>Community</h4>
-
-                <a href="#">Join the Team</a>
-
-                <a href="#">Contact Us</a>
-
-                <a href="#">Instagram</a>
-
-                <a href="#">Facebook</a>
-
-            </div>
+            <p>
+                Together for a brighter scientific future.
+            </p>
 
         </div>
 
@@ -1943,12 +2084,13 @@ footer {
     <div class="footer-bottom">
 
         <p>
-            © 2026 AZU Science.
-            Built by students, for students.
+            © 2026 AZU Science Team. All rights reserved.
         </p>
 
         <p>
-            Faculty of Science · Al-Azhar University
+            Science Creates Possibilities
+            &nbsp; — &nbsp;
+            AZU Science
         </p>
 
     </div>
@@ -1956,49 +2098,5 @@ footer {
 </footer>
 
 
-<script>
-
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-
-        link.addEventListener('click', function(e) {
-
-            const target = document.querySelector(
-                this.getAttribute('href')
-            );
-
-            if (target) {
-
-                e.preventDefault();
-
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
-
-            }
-
-        });
-
-    });
-
-
-    const navbar = document.querySelector('.navbar');
-
-    window.addEventListener('scroll', () => {
-
-        if (window.scrollY > 50) {
-
-            navbar.classList.add('scrolled');
-
-        } else {
-
-            navbar.classList.remove('scrolled');
-
-        }
-
-    });
-
-</script>
-
 </body>
-
-</html>    
+</html>
