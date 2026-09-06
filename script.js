@@ -447,6 +447,74 @@ document.addEventListener("DOMContentLoaded", () => {
 
         header.classList.add(
             "header-ready"
+
+            /* =========================================
+   LOGIN SECTION
+========================================= */
+
+const studentAccess = document.querySelector("#studentAccess");
+
+const adminAccess = document.querySelector("#adminAccess");
+
+
+/* =========================================
+   STUDENT ACCESS
+========================================= */
+
+if (studentAccess) {
+
+    studentAccess.addEventListener("click", () => {
+
+        studentAccess.classList.add("selected");
+
+        adminAccess.classList.remove("selected");
+
+
+        setTimeout(() => {
+
+            const departmentsSection =
+                document.querySelector("#departments");
+
+
+            if (departmentsSection) {
+
+                departmentsSection.scrollIntoView({
+
+                    behavior: "smooth",
+
+                    block: "start"
+
+                });
+
+            }
+
+        }, 300);
+
+    });
+
+}
+
+
+/* =========================================
+   ADMIN ACCESS
+========================================= */
+
+if (adminAccess) {
+
+    adminAccess.addEventListener("click", () => {
+
+        adminAccess.classList.add("selected");
+
+        studentAccess.classList.remove("selected");
+
+
+        alert(
+            "Admin Portal will be available soon."
+        );
+
+    });
+
+}
         );
 
     }
