@@ -1,2102 +1,426 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- =========================================================
+     SCIENCE PORTAL
+     MAIN WEBSITE HEADER
+========================================================= -->
 
-<head>
+<header class="site-header" id="home">
 
-    <meta charset="UTF-8">
+    <!-- Skip Link -->
+    <a href="#main-content" class="skip-link">
+        Skip to main content
+    </a>
 
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
 
-    <title>AZU Science</title>
+    <!-- =====================================================
+         TOP HEADER BAR
+         Portal identity and utility actions
+    ====================================================== -->
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <div class="header-top">
 
-    <link rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin>
+        <div class="header-wrapper">
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
-        rel="stylesheet">
+            <!-- Portal Status -->
+            <div class="portal-status">
 
-    <!-- Font Awesome -->
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+                <span class="status-indicator"></span>
 
-    <style>
+                <span class="status-text">
+                    Faculty of Science Digital Portal
+                </span>
 
-        /* =========================
-           ROOT
-        ========================== */
-
-        :root {
-
-            --dark: #062d30;
-            --dark-2: #041f22;
-            --primary: #0b5055;
-            --accent: #4f9da0;
-            --light: #f5f3ec;
-            --white: #ffffff;
-            --text: #183034;
-            --muted: #687477;
-            --border: #d9dfdc;
-
-        }
-
-
-        /* =========================
-           RESET
-        ========================== */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-
-        body {
-
-            font-family: "DM Sans", sans-serif;
-
-            background: var(--light);
-
-            color: var(--text);
-
-            overflow-x: hidden;
-
-        }
-
-
-        a {
-
-            text-decoration: none;
-
-            color: inherit;
-
-        }
-
-
-        img {
-
-            max-width: 100%;
-
-            display: block;
-
-        }
-
-
-        /* =========================
-           NAVBAR
-        ========================== */
-
-        nav {
-
-            height: 74px;
-
-            background: rgba(255, 255, 255, 0.97);
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            padding: 0 5%;
-
-            position: fixed;
-
-            top: 0;
-
-            left: 0;
-
-            width: 100%;
-
-            z-index: 1000;
-
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-
-        }
-
-
-        .brand {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 12px;
-
-        }
-
-
-        .brand img {
-
-            width: 58px;
-
-            height: 58px;
-
-            object-fit: contain;
-
-        }
-
-
-        .brand-text h1 {
-
-            font-family: "Playfair Display", serif;
-
-            font-size: 25px;
-
-            font-weight: 600;
-
-            letter-spacing: 0.5px;
-
-        }
-
-
-        .brand-text p {
-
-            font-size: 9px;
-
-            color: var(--muted);
-
-            margin-top: 2px;
-
-        }
-
-
-        .nav-links {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 28px;
-
-        }
-
-
-        .nav-links a {
-
-            font-size: 13px;
-
-            position: relative;
-
-            transition: 0.3s;
-
-        }
-
-
-        .nav-links a:hover {
-
-            color: var(--primary);
-
-        }
-
-
-        .nav-links a.active::after {
-
-            content: "";
-
-            position: absolute;
-
-            width: 22px;
-
-            height: 1px;
-
-            background: var(--primary);
-
-            left: 0;
-
-            bottom: -12px;
-
-        }
-
-
-        .nav-actions {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 22px;
-
-        }
-
-
-        .search-btn {
-
-            background: none;
-
-            border: none;
-
-            font-size: 17px;
-
-            cursor: pointer;
-
-        }
-
-
-        .sign-btn {
-
-            background: var(--dark);
-
-            color: white;
-
-            padding: 12px 20px;
-
-            border-radius: 7px;
-
-            font-size: 13px;
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 8px;
-
-            transition: 0.3s;
-
-        }
-
-
-        .sign-btn:hover {
-
-            background: var(--primary);
-
-            transform: translateY(-2px);
-
-        }
-
-
-        /* =========================
-           HERO
-        ========================== */
-
-        .hero {
-
-            height: 670px;
-
-            margin-top: 74px;
-
-            position: relative;
-
-            background-image:
-                linear-gradient(
-                    90deg,
-                    rgba(3, 22, 24, 0.92) 0%,
-                    rgba(3, 22, 24, 0.72) 32%,
-                    rgba(3, 22, 24, 0.10) 70%,
-                    rgba(3, 22, 24, 0.25) 100%
-                ),
-                url("college.jpg");
-
-            background-size: cover;
-
-            background-position: center;
-
-            display: flex;
-
-            align-items: center;
-
-        }
-
-
-        .hero-content {
-
-            width: 90%;
-
-            max-width: 1250px;
-
-            margin: auto;
-
-            color: white;
-
-            padding-top: 20px;
-
-        }
-
-
-        .hero-small {
-
-            font-size: 12px;
-
-            letter-spacing: 2px;
-
-            margin-bottom: 16px;
-
-            color: #d9e5e3;
-
-        }
-
-
-        .hero h1 {
-
-            font-family: "Playfair Display", serif;
-
-            font-size: clamp(60px, 7vw, 100px);
-
-            font-weight: 500;
-
-            line-height: 0.95;
-
-            margin-bottom: 15px;
-
-        }
-
-
-        .hero h1 span {
-
-            color: #62a8aa;
-
-        }
-
-
-        .hero-subtitle {
-
-            font-size: 20px;
-
-            margin-bottom: 25px;
-
-            color: #e4e8e7;
-
-        }
-
-
-        .hero-description {
-
-            max-width: 490px;
-
-            font-size: 16px;
-
-            line-height: 1.7;
-
-            color: #d4dddd;
-
-            margin-bottom: 28px;
-
-        }
-
-
-        .hero-buttons {
-
-            display: flex;
-
-            gap: 15px;
-
-            align-items: center;
-
-        }
-
-
-        .primary-btn {
-
-            background: #0d5960;
-
-            color: white;
-
-            padding: 15px 24px;
-
-            border-radius: 30px;
-
-            transition: 0.3s;
-
-            font-size: 14px;
-
-        }
-
-
-        .primary-btn:hover {
-
-            transform: translateY(-3px);
-
-            background: #167078;
-
-        }
-
-
-        .secondary-btn {
-
-            border: 1px solid rgba(255, 255, 255, 0.8);
-
-            color: white;
-
-            padding: 14px 28px;
-
-            border-radius: 30px;
-
-            transition: 0.3s;
-
-            font-size: 14px;
-
-        }
-
-
-        .secondary-btn:hover {
-
-            background: white;
-
-            color: var(--dark);
-
-        }
-
-
-        .scroll-down {
-
-            position: absolute;
-
-            left: 5%;
-
-            bottom: 25px;
-
-            color: #dce5e3;
-
-            display: flex;
-
-            flex-direction: column;
-
-            gap: 10px;
-
-            font-size: 12px;
-
-        }
-
-
-        .scroll-line {
-
-            width: 1px;
-
-            height: 35px;
-
-            background: white;
-
-            margin-left: 6px;
-
-        }
-
-
-        .hero-quote {
-
-            position: absolute;
-
-            right: 6%;
-
-            bottom: 25px;
-
-            color: white;
-
-            text-align: right;
-
-            font-family: "Playfair Display", serif;
-
-            font-style: italic;
-
-            font-size: 17px;
-
-            line-height: 1.5;
-
-        }
-
-
-        /* =========================
-           EXPLORE SECTION
-        ========================== */
-
-        .explore {
-
-            padding: 75px 5% 45px;
-
-            background: #f6f4ee;
-
-        }
-
-
-        .section-head {
-
-            display: flex;
-
-            align-items: end;
-
-            justify-content: space-between;
-
-            margin-bottom: 35px;
-
-        }
-
-
-        .section-label {
-
-            font-size: 10px;
-
-            letter-spacing: 2px;
-
-            color: var(--primary);
-
-            display: block;
-
-            margin-bottom: 12px;
-
-        }
-
-
-        .section-title {
-
-            font-family: "Playfair Display", serif;
-
-            font-size: 42px;
-
-            font-weight: 600;
-
-            margin-bottom: 7px;
-
-        }
-
-
-        .section-desc {
-
-            color: var(--muted);
-
-            font-size: 15px;
-
-        }
-
-
-        .section-side-text {
-
-            font-size: 11px;
-
-            letter-spacing: 2px;
-
-            color: #7d8584;
-
-            margin-bottom: 15px;
-
-        }
-
-
-        .explore-grid {
-
-            display: grid;
-
-            grid-template-columns: repeat(4, 1fr);
-
-            gap: 22px;
-
-        }
-
-
-        .explore-card {
-
-            min-height: 260px;
-
-            background: rgba(255, 255, 255, 0.45);
-
-            border: 1px solid #d8dfdd;
-
-            border-radius: 10px;
-
-            padding: 28px;
-
-            position: relative;
-
-            overflow: hidden;
-
-            transition: 0.35s;
-
-        }
-
-
-        .explore-card:hover {
-
-            transform: translateY(-7px);
-
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-
-        }
-
-
-        .explore-card i {
-
-            font-size: 36px;
-
-            color: var(--dark);
-
-            margin-bottom: 18px;
-
-        }
-
-
-        .explore-card h3 {
-
-            font-family: "Playfair Display", serif;
-
-            font-size: 24px;
-
-            margin-bottom: 10px;
-
-        }
-
-
-        .explore-card p {
-
-            color: #566366;
-
-            font-size: 14px;
-
-            line-height: 1.55;
-
-            max-width: 210px;
-
-        }
-
-
-        .circle-arrow {
-
-            width: 42px;
-
-            height: 42px;
-
-            border-radius: 50%;
-
-            background: var(--dark);
-
-            color: white;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            position: absolute;
-
-            bottom: 25px;
-
-            left: 25px;
-
-        }
-
-
-        /* =========================
-           STATS
-        ========================== */
-
-        .stats {
-
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(4, 42, 46, 0.98),
-                    rgba(3, 33, 37, 0.98)
-                );
-
-            color: white;
-
-            padding: 28px 5%;
-
-        }
-
-
-        .stats-container {
-
-            display: grid;
-
-            grid-template-columns: repeat(4, 1fr);
-
-        }
-
-
-        .stat {
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            gap: 18px;
-
-            border-right: 1px solid rgba(255, 255, 255, 0.25);
-
-        }
-
-
-        .stat:last-child {
-
-            border: none;
-
-        }
-
-
-        .stat i {
-
-            font-size: 36px;
-
-            color: #8ac0c0;
-
-        }
-
-
-        .stat h3 {
-
-            font-family: "Playfair Display", serif;
-
-            font-size: 25px;
-
-            font-weight: 500;
-
-        }
-
-
-        .stat p {
-
-            font-size: 12px;
-
-            color: #c4d0cf;
-
-            margin-top: 3px;
-
-        }
-
-
-        /* =========================
-           NEWS
-        ========================== */
-
-        .news {
-
-            padding: 75px 5%;
-
-            background: #f6f4ee;
-
-        }
-
-
-        .view-news {
-
-            border: 1px solid var(--primary);
-
-            padding: 12px 20px;
-
-            border-radius: 25px;
-
-            font-size: 13px;
-
-            transition: 0.3s;
-
-        }
-
-
-        .view-news:hover {
-
-            background: var(--dark);
-
-            color: white;
-
-        }
-
-
-        .news-grid {
-
-            display: grid;
-
-            grid-template-columns: repeat(3, 1fr);
-
-            gap: 28px;
-
-        }
-
-
-        .news-card {
-
-            background: white;
-
-            border: 1px solid #dfe3e1;
-
-            border-radius: 10px;
-
-            overflow: hidden;
-
-            display: grid;
-
-            grid-template-columns: 38% 62%;
-
-            min-height: 170px;
-
-            transition: 0.3s;
-
-        }
-
-
-        .news-card:hover {
-
-            transform: translateY(-5px);
-
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
-
-        }
-
-
-        .news-card img {
-
-            width: 100%;
-
-            height: 100%;
-
-            object-fit: cover;
-
-        }
-
-
-        .news-content {
-
-            padding: 17px;
-
-            position: relative;
-
-        }
-
-
-        .news-tag {
-
-            display: inline-block;
-
-            background: var(--primary);
-
-            color: white;
-
-            font-size: 9px;
-
-            padding: 6px 9px;
-
-            border-radius: 3px;
-
-            margin-bottom: 10px;
-
-        }
-
-
-        .news-date {
-
-            font-size: 9px;
-
-            color: #7b8382;
-
-            margin-left: 5px;
-
-        }
-
-
-        .news-content h3 {
-
-            font-family: "Playfair Display", serif;
-
-            font-size: 17px;
-
-            margin-bottom: 7px;
-
-        }
-
-
-        .news-content p {
-
-            font-size: 11px;
-
-            color: #6c7474;
-
-            line-height: 1.5;
-
-            margin-bottom: 10px;
-
-        }
-
-
-        .read-more {
-
-            font-size: 11px;
-
-            color: var(--primary);
-
-            font-weight: 600;
-
-        }
-
-
-        /* =========================
-           ABOUT
-        ========================== */
-
-        .about {
-
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(3, 42, 46, 0.98),
-                    rgba(3, 42, 46, 0.94)
-                );
-
-            color: white;
-
-            padding: 70px 5%;
-
-            position: relative;
-
-            overflow: hidden;
-
-        }
-
-
-        .about::after {
-
-            content: "";
-
-            position: absolute;
-
-            width: 500px;
-
-            height: 500px;
-
-            border-radius: 50%;
-
-            border: 1px solid rgba(255,255,255,0.04);
-
-            right: -200px;
-
-            bottom: -300px;
-
-        }
-
-
-        .about-content {
-
-            display: grid;
-
-            grid-template-columns: 1fr 1px 1fr;
-
-            gap: 60px;
-
-            align-items: center;
-
-            position: relative;
-
-            z-index: 2;
-
-        }
-
-
-        .about-divider {
-
-            width: 1px;
-
-            height: 110px;
-
-            background: rgba(255, 255, 255, 0.35);
-
-        }
-
-
-        .about h2 {
-
-            font-family: "Playfair Display", serif;
-
-            font-size: 42px;
-
-            line-height: 1.15;
-
-            margin-top: 15px;
-
-        }
-
-
-        .about-right p {
-
-            max-width: 430px;
-
-            line-height: 1.7;
-
-            color: #d5dfdd;
-
-            margin-bottom: 24px;
-
-        }
-
-
-        .meet-team-btn {
-
-            border: 1px solid rgba(255, 255, 255, 0.7);
-
-            border-radius: 25px;
-
-            padding: 13px 20px;
-
-            display: inline-block;
-
-            font-size: 13px;
-
-        }
-
-
-        .meet-team-btn:hover {
-
-            background: white;
-
-            color: var(--dark);
-
-        }
-
-
-        .about-quote {
-
-            position: absolute;
-
-            right: 7%;
-
-            bottom: 35px;
-
-            z-index: 2;
-
-            font-family: "Playfair Display", serif;
-
-            font-style: italic;
-
-            font-size: 17px;
-
-            color: #e1e9e7;
-
-        }
-
-
-        /* =========================
-           FOOTER
-        ========================== */
-
-        footer {
-
-            background: #f6f4ee;
-
-        }
-
-
-        .footer-main {
-
-            padding: 55px 5%;
-
-            display: grid;
-
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-
-            gap: 50px;
-
-        }
-
-
-        .footer-logo {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 15px;
-
-        }
-
-
-        .footer-logo img {
-
-            width: 75px;
-
-            height: 75px;
-
-            object-fit: contain;
-
-        }
-
-
-        .footer-logo h2 {
-
-            font-family: "Playfair Display", serif;
-
-            font-size: 26px;
-
-        }
-
-
-        .footer-logo p {
-
-            font-size: 11px;
-
-            line-height: 1.5;
-
-            color: #6d7777;
-
-            margin-top: 6px;
-
-        }
-
-
-        .footer-links {
-
-            display: flex;
-
-            flex-direction: column;
-
-            gap: 7px;
-
-        }
-
-
-        .footer-links h4,
-        .footer-social h4 {
-
-            font-size: 12px;
-
-            margin-bottom: 8px;
-
-        }
-
-
-        .footer-links a {
-
-            font-size: 11px;
-
-            color: #5e6968;
-
-            transition: 0.2s;
-
-        }
-
-
-        .footer-links a:hover {
-
-            color: var(--primary);
-
-            transform: translateX(3px);
-
-        }
-
-
-        .social-icons {
-
-            display: flex;
-
-            gap: 9px;
-
-            margin: 14px 0;
-
-        }
-
-
-        .social-icons a {
-
-            width: 30px;
-
-            height: 30px;
-
-            border-radius: 50%;
-
-            background: var(--dark);
-
-            color: white;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            font-size: 13px;
-
-        }
-
-
-        .footer-social p {
-
-            font-size: 11px;
-
-            color: #697272;
-
-            line-height: 1.5;
-
-        }
-
-
-        .footer-bottom {
-
-            background: var(--dark-2);
-
-            color: #d4dddd;
-
-            padding: 20px 5%;
-
-            display: flex;
-
-            justify-content: space-between;
-
-            font-size: 11px;
-
-        }
-
-
-        /* =========================
-           MOBILE
-        ========================== */
-
-        @media (max-width: 950px) {
-
-            .nav-links {
-
-                display: none;
-
-            }
-
-
-            .explore-grid {
-
-                grid-template-columns: repeat(2, 1fr);
-
-            }
-
-
-            .news-grid {
-
-                grid-template-columns: 1fr;
-
-            }
-
-
-            .footer-main {
-
-                grid-template-columns: repeat(2, 1fr);
-
-            }
-
-        }
-
-
-        @media (max-width: 650px) {
-
-            nav {
-
-                padding: 0 15px;
-
-                height: 65px;
-
-            }
-
-
-            .brand img {
-
-                width: 45px;
-
-                height: 45px;
-
-            }
-
-
-            .brand-text h1 {
-
-                font-size: 19px;
-
-            }
-
-
-            .brand-text p {
-
-                display: none;
-
-            }
-
-
-            .sign-btn {
-
-                padding: 10px 13px;
-
-                font-size: 11px;
-
-            }
-
-
-            .nav-actions {
-
-                gap: 12px;
-
-            }
-
-
-            .hero {
-
-                margin-top: 65px;
-
-                height: 620px;
-
-            }
-
-
-            .hero h1 {
-
-                font-size: 58px;
-
-            }
-
-
-            .hero-subtitle {
-
-                font-size: 16px;
-
-            }
-
-
-            .hero-description {
-
-                font-size: 14px;
-
-            }
-
-
-            .hero-quote {
-
-                display: none;
-
-            }
-
-
-            .section-head {
-
-                display: block;
-
-            }
-
-
-            .section-side-text {
-
-                margin-top: 20px;
-
-            }
-
-
-            .explore-grid {
-
-                grid-template-columns: 1fr;
-
-            }
-
-
-            .stats-container {
-
-                grid-template-columns: repeat(2, 1fr);
-
-                gap: 25px;
-
-            }
-
-
-            .stat {
-
-                border: none;
-
-                justify-content: flex-start;
-
-            }
-
-
-            .section-title {
-
-                font-size: 34px;
-
-            }
-
-
-            .about-content {
-
-                grid-template-columns: 1fr;
-
-                gap: 30px;
-
-            }
-
-
-            .about-divider {
-
-                display: none;
-
-            }
-
-
-            .about h2 {
-
-                font-size: 36px;
-
-            }
-
-
-            .about-quote {
-
-                display: none;
-
-            }
-
-
-            .footer-main {
-
-                grid-template-columns: 1fr;
-
-                gap: 30px;
-
-            }
-
-
-            .footer-bottom {
-
-                flex-direction: column;
-
-                gap: 10px;
-
-            }
-
-        }
-
-    </style>
-
-</head>
-
-
-<body>
-   <!-- =========================
-     NAVIGATION
-========================= -->
-
-<nav>
-    <div class="brand">
-        <img src="logo.png" alt="AZU Science Logo">
-        
-        <div class="brand-text">
-            <h2>AZU Science</h2>
-            <p>The Student Platform for the Faculty of Science</p>
-        </div>
-    </div>
-
-    <div class="nav-links">
-        <a href="#home" class="active">Home</a>
-        <a href="#academic">Academic</a>
-        <a href="#research">Research</a>
-        <a href="#opportunities">Opportunities</a>
-        <a href="#news">News</a>
-        <a href="#community">Community</a>
-        <a href="#about">About</a>
-    </div>
-
-    <div class="nav-actions">
-        <span class="search-icon">⌕</span>
-        <a href="#" class="sign-in">♙ Sign In</a>
-    </div>
-</nav>
-
-
-<!-- =========================
-     HERO SECTION
-========================= -->
-
-<section class="hero" id="home">
-
-    <div class="hero-overlay"></div>
-
-    <div class="hero-content">
-
-        <span class="eyebrow">
-            AL-AZHAR UNIVERSITY
-        </span>
-
-        <h1>
-            AZU <span>Science</span>
-        </h1>
-
-        <h2>
-            The Student Platform for the Faculty of Science
-        </h2>
-
-        <p>
-            Everything you need for your academic journey,
-            research, opportunities and student life — in one place.
-        </p>
-
-        <div class="hero-buttons">
-
-            <a href="#explore" class="primary-btn">
-                Explore Platform →
-            </a>
-
-            <a href="#" class="secondary-btn">
-                Student Login
-            </a>
-
-        </div>
-
-        <div class="scroll-down">
-            <span>↓</span>
-            <p>Scroll Down</p>
-        </div>
-
-    </div>
-
-    <div class="hero-quote">
-        <span>“Science today</span>
-        <strong>A brighter tomorrow.”</strong>
-    </div>
-
-</section>
-
-
-<!-- =========================
-     EXPLORE SECTION
-========================= -->
-
-<section class="explore-section" id="explore">
-
-    <div class="section-header">
-
-        <div>
-            <span class="section-label">
-                EXPLORE
-            </span>
-
-            <h2>
-                What are you looking for?
-            </h2>
-
-            <p>
-                Access everything you need with just one click.
-            </p>
-        </div>
-
-        <div class="section-words">
-            STUDY · RESEARCH · GROW · BELONG
-        </div>
-
-    </div>
-
-
-    <div class="cards-container">
-
-        <!-- Academic -->
-
-        <div class="feature-card" id="academic">
-
-            <div class="card-icon">
-                ▥
             </div>
 
-            <h3>
-                Academic
-            </h3>
 
-            <p>
-                Lectures, sections, study materials,
-                schedules and more.
-            </p>
+            <!-- Utility Navigation -->
+            <div class="utility-links">
 
-            <a href="#" class="circle-btn">
-                →
-            </a>
+                <a href="#about">
+                    About Portal
+                </a>
 
-            <div class="card-decoration">
-                📖
-            </div>
-
-        </div>
-
-
-        <!-- Research -->
-
-        <div class="feature-card" id="research">
-
-            <div class="card-icon">
-                🔬
-            </div>
-
-            <h3>
-                Research
-            </h3>
-
-            <p>
-                Discover research opportunities,
-                projects and scientific resources.
-            </p>
-
-            <a href="#" class="circle-btn">
-                →
-            </a>
-
-            <div class="card-decoration">
-                🔬
-            </div>
-
-        </div>
-
-
-        <!-- Opportunities -->
-
-        <div class="feature-card" id="opportunities">
-
-            <div class="card-icon">
-                💼
-            </div>
-
-            <h3>
-                Opportunities
-            </h3>
-
-            <p>
-                Internships, scholarships,
-                competitions and scientific events.
-            </p>
-
-            <a href="#" class="circle-btn">
-                →
-            </a>
-
-            <div class="card-decoration">
-                ◎
-            </div>
-
-        </div>
-
-
-        <!-- News -->
-
-        <div class="feature-card">
-
-            <div class="card-icon">
-                📢
-            </div>
-
-            <h3>
-                News
-            </h3>
-
-            <p>
-                Latest announcements,
-                faculty news and upcoming events.
-            </p>
-
-            <a href="#news" class="circle-btn">
-                →
-            </a>
-
-            <div class="card-decoration">
-                ▤
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     STATISTICS
-========================= -->
-
-<section class="stats-section">
-
-    <div class="stat-item">
-
-        <div class="stat-icon">
-            👥
-        </div>
-
-        <div>
-            <h3>5,000+</h3>
-            <p>Students</p>
-        </div>
-
-    </div>
-
-
-    <div class="stat-item">
-
-        <div class="stat-icon">
-            👨‍🏫
-        </div>
-
-        <div>
-            <h3>150+</h3>
-            <p>Academic Staff</p>
-        </div>
-
-    </div>
-
-
-    <div class="stat-item">
-
-        <div class="stat-icon">
-            ⚗
-        </div>
-
-        <div>
-            <h3>20+</h3>
-            <p>Research Projects</p>
-        </div>
-
-    </div>
-
-
-    <div class="stat-item">
-
-        <div class="stat-icon">
-            🏛
-        </div>
-
-        <div>
-            <h3>10+</h3>
-            <p>Departments</p>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     NEWS SECTION
-========================= -->
-
-<section class="news-section" id="news">
-
-    <div class="news-header">
-
-        <div>
-
-            <span class="section-label">
-                LATEST UPDATES
-            </span>
-
-            <h2>
-                News & Announcements
-            </h2>
-
-            <p>
-                Stay updated with the latest news from the faculty and our team.
-            </p>
-
-        </div>
-
-        <a href="#" class="view-all">
-            View All News →
-        </a>
-
-    </div>
-
-
-    <div class="news-grid">
-
-
-        <!-- News 1 -->
-
-        <article class="news-card">
-
-            <img src="college.jpg" alt="Al-Azhar University">
-
-            <div class="news-content">
-
-                <div class="news-meta">
-                    <span class="news-tag">
-                        News
-                    </span>
-
-                    <small>
-                        Sep 5, 2026
-                    </small>
-                </div>
-
-                <h3>
-                    Start of the New Academic Year
-                </h3>
-
-                <p>
-                    Important information for all students
-                    regarding registration and schedules.
-                </p>
-
-                <a href="#" class="read-more">
-                    Read More →
+                <a href="#contact">
+                    Support
                 </a>
 
             </div>
 
-        </article>
+        </div>
+
+    </div>
 
 
-        <!-- News 2 -->
+    <!-- =====================================================
+         MAIN HEADER
+         Logo, website identity and actions
+    ====================================================== -->
 
-        <article class="news-card">
+    <div class="main-header">
 
-            <img src="IMG-20260906-WA0048.jpg" alt="Research">
+        <div class="header-wrapper">
 
-            <div class="news-content">
 
-                <div class="news-meta">
+            <!-- =========================
+                 WEBSITE BRAND
+            ========================== -->
 
-                    <span class="news-tag">
-                        Opportunity
-                    </span>
+            <a href="#home" class="brand">
 
-                    <small>
-                        Aug 28, 2026
-                    </small>
+                <div class="brand-logo">
+
+                    <img
+                        src="images/header/logo.png"
+                        alt="Science Portal"
+                    >
 
                 </div>
 
-                <h3>
-                    Science & Research Opportunities
-                </h3>
 
-                <p>
-                    Discover new opportunities, projects
-                    and resources for science students.
-                </p>
+                <div class="brand-content">
 
-                <a href="#" class="read-more">
-                    Read More →
-                </a>
-
-            </div>
-
-        </article>
-
-
-        <!-- News 3 -->
-
-        <article class="news-card">
-
-            <img src="FB_IMG_1787890237301.jpg" alt="Scientific Workshop">
-
-            <div class="news-content">
-
-                <div class="news-meta">
-
-                    <span class="news-tag">
-                        Event
+                    <span class="brand-title">
+                        Science Portal
                     </span>
 
-                    <small>
-                        Aug 20, 2026
-                    </small>
+                    <span class="brand-subtitle">
+                        Faculty of Science
+                    </span>
 
                 </div>
 
-                <h3>
-                    Scientific Research Workshop
-                </h3>
+            </a>
 
-                <p>
-                    A workshop on how to start
-                    your research journey.
-                </p>
 
-                <a href="#" class="read-more">
-                    Read More →
+            <!-- =========================
+                 HEADER ACTIONS
+            ========================== -->
+
+            <div class="header-actions">
+
+
+                <!-- Search Button -->
+
+                <button
+                    class="search-button"
+                    type="button"
+                    aria-label="Open search"
+                >
+
+                    <span class="search-icon">
+                        🔍
+                    </span>
+
+                    <span class="search-text">
+                        Search
+                    </span>
+
+                </button>
+
+
+                <!-- Login Button -->
+
+                <a
+                    href="#login"
+                    class="login-button"
+                >
+
+                    <span class="login-icon">
+                        →
+                    </span>
+
+                    <span class="login-text">
+                        Login
+                    </span>
+
                 </a>
+
+
+                <!-- Mobile Menu Button -->
+
+                <button
+                    class="menu-toggle"
+                    type="button"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
+                    aria-controls="main-navigation"
+                >
+
+                    <span class="menu-line"></span>
+
+                    <span class="menu-line"></span>
+
+                    <span class="menu-line"></span>
+
+                </button>
 
             </div>
 
-        </article>
+        </div>
 
     </div>
 
-</section>
+
+    <!-- =====================================================
+         MAIN NAVIGATION
+    ====================================================== -->
+
+    <nav
+        class="main-navigation"
+        id="main-navigation"
+        aria-label="Primary navigation"
+    >
+
+        <div class="header-wrapper">
 
 
-<!-- =========================
-     ABOUT SECTION
-========================= -->
+            <ul class="navigation-list">
 
-<section class="about-section" id="about">
 
-    <div class="about-overlay"></div>
+                <!-- Home -->
 
-    <div class="about-content">
+                <li class="navigation-item">
 
-        <div class="about-left">
+                    <a
+                        href="#home"
+                        class="navigation-link active"
+                    >
 
-            <span class="section-label light">
-                ABOUT US
+                        Home
+
+                    </a>
+
+                </li>
+
+
+                <!-- Departments -->
+
+                <li class="navigation-item">
+
+                    <a
+                        href="#departments"
+                        class="navigation-link"
+                    >
+
+                        Departments
+
+                    </a>
+
+                </li>
+
+
+                <!-- Academic Levels -->
+
+                <li class="navigation-item">
+
+                    <a
+                        href="#levels"
+                        class="navigation-link"
+                    >
+
+                        Academic Levels
+
+                    </a>
+
+                </li>
+
+
+                <!-- Programs -->
+
+                <li class="navigation-item">
+
+                    <a
+                        href="#programs"
+                        class="navigation-link"
+                    >
+
+                        Programs
+
+                    </a>
+
+                </li>
+
+
+                <!-- Courses -->
+
+                <li class="navigation-item">
+
+                    <a
+                        href="#courses"
+                        class="navigation-link"
+                    >
+
+                        Courses
+
+                    </a>
+
+                </li>
+
+
+                <!-- Lectures -->
+
+                <li class="navigation-item">
+
+                    <a
+                        href="#lectures"
+                        class="navigation-link"
+                    >
+
+                        Lectures
+
+                    </a>
+
+                </li>
+
+
+                <!-- About -->
+
+                <li class="navigation-item">
+
+                    <a
+                        href="#about"
+                        class="navigation-link"
+                    >
+
+                        About
+
+                    </a>
+
+                </li>
+
+
+                <!-- Contact -->
+
+                <li class="navigation-item">
+
+                    <a
+                        href="#contact"
+                        class="navigation-link"
+                    >
+
+                        Contact
+
+                    </a>
+
+                </li>
+
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =====================================================
+         MOBILE NAVIGATION
+         Controlled by JavaScript
+    ====================================================== -->
+
+    <div class="mobile-navigation" id="mobile-navigation">
+
+
+        <div class="mobile-navigation-header">
+
+
+            <span class="mobile-menu-title">
+                Navigation
             </span>
 
-            <h2>
-                Built by Students.<br>
-                For Students.
-            </h2>
+
+            <button
+                class="mobile-menu-close"
+                type="button"
+                aria-label="Close navigation menu"
+            >
+
+                ×
+
+            </button>
 
         </div>
 
 
-        <div class="about-middle">
-
-            <p>
-                AZU Science is a student-driven platform created
-                to make academic life at the Faculty of Science easier,
-                more connected, and more accessible.
-            </p>
-
-            <a href="#" class="meet-btn">
-                Meet the Team →
-            </a>
-
-        </div>
+        <ul class="mobile-navigation-list">
 
 
-        <div class="about-quote">
-
-            <p>
-                “Knowledge
-                <br>
-                builds nations.”
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer id="community">
-
-    <div class="footer-main">
-
-
-        <!-- Brand -->
-
-        <div class="footer-brand">
-
-            <img src="logo.png" alt="AZU Science Logo">
-
-            <div>
-
-                <h2>
-                    AZU Science
-                </h2>
-
-                <p>
-                    The Student Platform for the Faculty of Science
-                </p>
-
-                <p>
-                    Al-Azhar University
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <!-- Quick Links -->
-
-        <div class="footer-links">
-
-            <h4>
-                Quick Links
-            </h4>
-
-            <a href="#home">Home</a>
-            <a href="#academic">Academic</a>
-            <a href="#research">Research</a>
-            <a href="#opportunities">Opportunities</a>
-            <a href="#news">News</a>
-            <a href="#community">Community</a>
-
-        </div>
-
-
-        <!-- Support -->
-
-        <div class="footer-links">
-
-            <h4>
-                Support
-            </h4>
-
-            <a href="#">
-                FAQ
-            </a>
-
-            <a href="#">
-                Contact Us
-            </a>
-
-            <a href="#">
-                Report an Issue
-            </a>
-
-        </div>
-
-
-        <!-- Social -->
-
-        <div class="footer-social">
-
-            <h4>
-                Follow Us
-            </h4>
-
-            <div class="social-icons">
-
-                <a href="#">
-                    f
+            <li>
+                <a href="#home">
+                    Home
                 </a>
+            </li>
 
-                <a href="#">
-                    ◎
+
+            <li>
+                <a href="#departments">
+                    Departments
                 </a>
+            </li>
 
-                <a href="#">
-                    ▶
+
+            <li>
+                <a href="#levels">
+                    Academic Levels
                 </a>
+            </li>
 
-                <a href="#">
-                    in
+
+            <li>
+                <a href="#programs">
+                    Programs
                 </a>
+            </li>
 
-            </div>
 
-            <p>
-                Together for a brighter scientific future.
-            </p>
+            <li>
+                <a href="#courses">
+                    Courses
+                </a>
+            </li>
+
+
+            <li>
+                <a href="#lectures">
+                    Lectures
+                </a>
+            </li>
+
+
+            <li>
+                <a href="#about">
+                    About
+                </a>
+            </li>
+
+
+            <li>
+                <a href="#contact">
+                    Contact
+                </a>
+            </li>
+
+
+        </ul>
+
+
+        <div class="mobile-navigation-actions">
+
+            <a
+                href="#login"
+                class="mobile-login-button"
+            >
+
+                Login to Your Account
+
+            </a>
 
         </div>
 
     </div>
 
 
-    <div class="footer-bottom">
+    <!-- Mobile Menu Overlay -->
 
-        <p>
-            © 2026 AZU Science Team. All rights reserved.
-        </p>
-
-        <p>
-            Science Creates Possibilities
-            &nbsp; — &nbsp;
-            AZU Science
-        </p>
-
-    </div>
-
-</footer>
+    <div class="mobile-menu-overlay"></div>
 
 
-</body>
-</html>
+</header>
