@@ -1,22 +1,374 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>بوابة كلية العلوم</title>
+
+  <title>Science Portal | Faculty of Science</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      color: #1b263b;
+    }
+
+    /* Navigation */
+    nav {
+      background: #0b1f3a;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 8%;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #4cc9f0;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    nav ul li a:hover {
+      color: #4cc9f0;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 500px;
+      background:
+        linear-gradient(rgba(11, 31, 58, 0.88),
+        rgba(11, 31, 58, 0.75)),
+        url("https://images.unsplash.com/photo-1532094349884-543bc11b234d");
+      background-size: cover;
+      background-position: center;
+
+      color: white;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      padding: 60px 10%;
+    }
+
+    .hero h1 {
+      font-size: 55px;
+      max-width: 700px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      max-width: 600px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .hero button {
+      width: 170px;
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
+      background: #4cc9f0;
+      color: #0b1f3a;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .hero button:hover {
+      background: white;
+    }
+
+    /* Services */
+    .services {
+      padding: 80px 10%;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 35px;
+      margin-bottom: 15px;
+    }
+
+    .section-text {
+      color: #6c757d;
+      margin-bottom: 45px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      padding: 35px 25px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 15px;
+      color: #0b1f3a;
+    }
+
+    .card p {
+      color: #6c757d;
+      line-height: 1.6;
+    }
+
+    /* Statistics */
+    .stats {
+      background: #0b1f3a;
+      color: white;
+      padding: 60px 10%;
+
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      text-align: center;
+      gap: 30px;
+    }
+
+    .stat h2 {
+      font-size: 40px;
+      color: #4cc9f0;
+    }
+
+    .stat p {
+      margin-top: 10px;
+    }
+
+    /* News */
+    .news {
+      padding: 80px 10%;
+      text-align: center;
+    }
+
+    .news-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .news-card {
+      background: white;
+      text-align: left;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .news-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .news-content {
+      padding: 20px;
+    }
+
+    .news-content h3 {
+      margin-bottom: 10px;
+    }
+
+    .news-content p {
+      color: #6c757d;
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    footer {
+      background: #08172b;
+      color: white;
+      text-align: center;
+      padding: 25px;
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+
+      nav {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav ul {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .cards,
+      .news-container {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+    }
+  </style>
 </head>
 
 <body>
 
-  <h1>بوابة كلية العلوم</h1>
+  <!-- Navigation -->
 
-  <p>مرحبًا بك في منصة الطلاب</p>
+  <nav>
 
-  <button>دخول الطالب</button>
+    <div class="logo">
+      SCIENCE PORTAL
+    </div>
 
-  <button>دخول الإدارة</button>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#">Departments</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
 
-</body>
+  </nav>
 
-</html>
+
+  <!-- Hero -->
+
+  <section class="hero">
+
+    <h1>
+      Explore. Discover. Innovate.
+    </h1>
+
+    <p>
+      Welcome to the Faculty of Science digital portal.
+      Access academic resources, university services,
+      research opportunities and the latest faculty news.
+    </p>
+
+    <button onclick="alert('Welcome to Science Portal!')">
+      Get Started
+    </button>
+
+  </section>
+
+
+  <!-- Services -->
+
+  <section class="services" id="services">
+
+    <h2 class="section-title">
+      Student Services
+    </h2>
+
+    <p class="section-text">
+      Everything you need in one place.
+    </p>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>🎓 Student Portal</h3>
+
+        <p>
+          Access your academic information,
+          courses and student services.
+        </p>
+      </div>
+
+
+      <div class="card">
+        <h3>🔬 Research Hub</h3>
+
+        <p>
+          Discover scientific research,
+          projects and academic opportunities.
+        </p>
+      </div>
+
+
+      <div class="card">
+        <h3>📚 Learning Resources</h3>
+
+        <p>
+          Explore lectures, الكتب الدراسية,
+          educational materials and resources.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Statistics -->
+
+  <section class="stats">
+
+    <div class="stat">
+      <h2>5,000+</h2>
+      <p>Students</p>
+    </div>
+
+    <div class="stat">
+      <h2>150+</h2>
+      <p>Academic Staff</p>
+    </div>
+
+    <div class="stat">
+      <h2>20+</h2>
+      <p>Research Projects</p>
+    </div>
+
+    <div class="stat">
+      <h2>10+</h2>
+      <p>Departments</p>
+    </div>
+
+  </section>
+
+
+  <!-- News -->
+
+  <section class="news" id="news">
+
+    <h2 class="section-title">
+      Latest News
+    </h2>
+
+    <p class="section-text">
+      Stay updated with the latest events
